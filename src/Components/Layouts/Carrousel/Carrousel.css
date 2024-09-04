@@ -1,0 +1,48 @@
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100rem;
+    max-width: 600px;
+    margin: 0 auto;
+
+    
+  }
+  
+  .carousel-image img {
+    width: 36rem;
+    height: 20rem;
+    margin-top: 3rem;
+  
+  }
+
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .carousel-controls label {
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .carousel-controls input[type="radio"] {
+    display: none;
+  }
+  
+  .carousel-controls span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+  }
+  
+  .carousel-controls input[type="radio"]:checked + span {
+    background-color: #333;
+  }
+  
+  

@@ -1,0 +1,61 @@
+.user-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .user-info,
+  .tree-info {
+    width: 100%;
+    max-width: 600px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .principal-information {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .characteristics {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 20px; 
+  }
+  
+  
+  .tree-description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 17.5rem;
+    height: 17.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+  }
+  
+  .localizacion {
+    flex: 1; 
+    padding-left: 10px; 
+  }
+  
+  .fotos-crecimiento img {
+    width: 100%;
+    max-width: 200px;
+    margin: 10px 0;
+  }
+  
+  h2,
+  h3 {
+    margin-bottom: 10px;
+   color:#333;
+  }

@@ -1,0 +1,15 @@
+.location-image img{
+    width: 17rem;
+    height: 17rem;
+    border-radius: 3px;
+}
+
+.location-card{
+    width: 17.5rem;
+    height: 17.5rem;
+    background-color: #6ca9176b;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
