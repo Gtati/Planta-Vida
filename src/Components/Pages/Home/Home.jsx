@@ -26,18 +26,18 @@ function  Home() {
            <section id="nuestros-planes" className="NuestrosPlanes">
            <div className="bonos">
             <Card 
-                title="Bono Exequial Planta Vida" 
+                title="Bono Aporte Ambiental" 
                 content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo obcaecati dolore quia harum accusamus veritatis eius autem. Fugiat voluptatum ratione veniam unde fuga aliquid consequuntur doloribus cumque distinctio error?" 
                 buttonText="Conoce Más"
-                modalContent={<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut culpa ullam, odio amet nulla voluptates vitae iusto voluptatem atque porro. Dolor voluptate enim eligendi nostrum dignissimos ullam saepe similique alias!</p>}
+                modalContent={<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex distinctio magni dolor officiis tempore deserunt rem cum a eligendi neque harum fugit, ad sint dignissimos possimus, aperiam quia fuga eveniet!</p>}
             />
             </div>
             <div className="bonos">
             <Card 
-                title="Bono Exequial Planta Vida" 
+                title="Bono Aporte Ambiental" 
                 content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo obcaecati dolore quia harum accusamus veritatis eius autem. Fugiat voluptatum ratione veniam unde fuga aliquid consequuntur doloribus cumque distinctio error?" 
                 buttonText="Conoce Más"
-                modalContent={<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut culpa ullam, odio amet nulla voluptates vitae iusto voluptatem atque porro. Dolor voluptate enim eligendi nostrum dignissimos ullam saepe similique alias!</p>}
+                modalContent={<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex distinctio magni dolor officiis tempore deserunt rem cum a eligendi neque harum fugit, ad sint dignissimos possimus, aperiam quia fuga eveniet!</p>}
             />
             </div>
             <div className="bonos">

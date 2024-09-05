@@ -10,20 +10,20 @@ export const Information = () => {
         <div className='items'>
         <div className='info'>
         <TfiLocationPin className='icon'/>
-        <h2>Direccion</h2>
+        <h2>Dirección</h2>
         <p> Cra. 14 #23 - 15, Armenia, Quindío</p>
         </div>
         <div className='info'>
         <FiPhone className='icon'/>
-        <h2>Telefono</h2>
+        <h2>Teléfono</h2>
         <p>3183499804</p>
         </div>
         <div className='info'>
         <LuMails  className='icon'/>
-        <h2>Correo Electronico</h2>
+        <h2>Correo Electrónico</h2>
         <p>plantavida@camaraarmenia.org.co</p>
         </div>
         </div>
-    </div>
-  )
+</div>
+)
 }

@@ -3,6 +3,7 @@
     height: 17rem;
     background-color: #fff;
     border-radius: 3px;
+    border: 2px solid #999999;
 }
 
 .image-link{
@@ -13,4 +14,5 @@
     align-items: center;
     justify-content: center;
     border-radius: 4px;
+    border: 2px solid #999999;
 }

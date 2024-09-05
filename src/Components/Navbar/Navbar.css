@@ -21,7 +21,7 @@
     text-decoration: none;
     background-color: black;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     top: 0;
     z-index: 1000;
 
@@ -63,6 +63,7 @@
 .icons{
     height: 1.5rem;
     width: 1.5rem;
-    padding-left: 1.5rem;
+    margin: 4px;
     color: white;
+    margin-right: 1.5rem;
 }

@@ -26,7 +26,7 @@
   button {
     
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background: linear-gradient(0.25turn, #199202, #7cd900, #199202);
     color: white;
     border: none;
     border-radius: 3px;
@@ -43,14 +43,14 @@
     background-color: #ececec;
     padding: 1rem;
     margin-top: 2rem;
-    border: 2px solid #5a7423;
+    border: 2px solid #999999;
     border-radius: 1rem;
   }
   .general-signin{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #76885b;
+    background-color: #f1f1f1;
     text-align: center;
   }
 
