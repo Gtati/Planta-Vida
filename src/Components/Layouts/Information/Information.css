@@ -8,15 +8,18 @@
    text-align: center;
 }
 .info h2{
-color: #999999;
+color: #89c977;
+}
+.info p{
+    color: white;
 }
 
 .icon{
     width: 3rem;
    height:3rem;
-   color: #5c9f24;
+   color: #89c977;
 }
 .information{
-    background-color: #ffffff1a;
+    background-color: #052d23;
     margin: 0;
 }

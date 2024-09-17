@@ -15,41 +15,40 @@ function  Home() {
     <div>
       <Navbar/>
       <section id="quienes-somos" className="QuienesSomos">
-       
             <div className="quienes-somos">
                 <Carousel/>
-                
             </div>
-            <p className="text-container">Un programa liderado por la Cámara de Comercio de Armenia y del Quindío
-            Más allá de plantar un árbol, este bono es símbolo de vida, un aporte al bienestar del planeta y al recuerdo de momentos memorables, que se prolongan desde la semilla hasta el crecimiento de un nuevo ser..</p>
            </section>
            <section id="nuestros-planes" className="NuestrosPlanes">
-           <div className="bonos">
+            <div className="containerBonos">
+           <div className="bonos1">
             <Card 
-                title="Bono Aporte Ambiental" 
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo obcaecati dolore quia harum accusamus veritatis eius autem. Fugiat voluptatum ratione veniam unde fuga aliquid consequuntur doloribus cumque distinctio error?" 
-                buttonText="Conoce Más"
+                title="Bono celebracion" 
+                content="Este bono representa la siembra y mantenimiento de un árbol nativo; ideal para celebrar momentos como: cumpleaños, matrimonios, grados, nacimientos, aniversarios u otro acontecimiento." 
+                buttonText="Ver más"
                 modalContent={<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex distinctio magni dolor officiis tempore deserunt rem cum a eligendi neque harum fugit, ad sint dignissimos possimus, aperiam quia fuga eveniet!</p>}
             />
             </div>
-            <div className="bonos">
+            <div className="bonos2">
             <Card 
-                title="Bono Aporte Ambiental" 
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo obcaecati dolore quia harum accusamus veritatis eius autem. Fugiat voluptatum ratione veniam unde fuga aliquid consequuntur doloribus cumque distinctio error?" 
-                buttonText="Conoce Más"
+                title="Bono exequial" 
+                content="Este bono es destinado a homenajear a una persona fallecida y recordar su existencia con la siembra de un árbol." 
+                buttonText="Ver Más"
                 modalContent={<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex distinctio magni dolor officiis tempore deserunt rem cum a eligendi neque harum fugit, ad sint dignissimos possimus, aperiam quia fuga eveniet!</p>}
             />
             </div>
-            <div className="bonos">
+            <div className="bonos3">
             <Card 
                 title="Bono Aporte Ambiental" 
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis illo obcaecati dolore quia harum accusamus veritatis eius autem. Fugiat voluptatum ratione veniam unde fuga aliquid consequuntur doloribus cumque distinctio error?" 
-                buttonText="Conoce Más"
+                content="Con este bono apoya la conservación y recuperación de los bosques de las zonas urbanas y rurales del departamento del Quindío." 
+                buttonText="Ver Más"
                 modalContent={<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex distinctio magni dolor officiis tempore deserunt rem cum a eligendi neque harum fugit, ad sint dignissimos possimus, aperiam quia fuga eveniet!</p>}
             />
+            </div>
             </div>
            </section>
            <section id="preguntas-frecuentes" className="PreguntasFrecuentes">
+            <div className="containerPreguntas">
             <div className="preguntas-frecuentes">
             <h2>Nuestra Ubicacion</h2>
             <LocationCard/>
@@ -70,17 +69,17 @@ function  Home() {
             altText="Descripción de la imagen"
             />
             </div>
+            </div>
            </section>
            <section id="contacto" className="FormularioContacto">
+
             <ContactForm/>
             </section>
             
            <section className="infor">
             <Information/>
            </section>
-           <section>
-
-           </section>
+           
            <Footer/>
 
     </div>
