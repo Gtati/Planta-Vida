@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <nav className='container-items'>
       <ul className='logo-list'>
-        <Link smooth to='/'>
+        <Link smooth to='/#quienes-somos'>
           <img src={logoPlantaVida} alt="Logo Planta Vida" className="logo" />
         </Link>
       </ul>
@@ -32,7 +32,15 @@ const Navbar = () => {
           </Link>
         </li>
       </ul>
-      <button className='btn-login'>Login</button>
+      <div className='buttons'>
+      <Link smooth to='/LogIn' className='btn'>
+            Iniciar Sesion
+          </Link>
+          <Link smooth to='/SignUp' className='btn'>
+           Registrarse
+          </Link>
+      
+</div>
     </nav>
   );
 };

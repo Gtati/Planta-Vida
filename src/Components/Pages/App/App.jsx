@@ -4,7 +4,9 @@ import ShoppingCart from '../ShoppingCart/ShoppingCart'
 import NotFound from '../NotFound/NotFound'
 import UserProfile from '../UserProfile/UserProfile'
 import './App.css'
-import SignIn from '../SignIn/SignIn'
+
+import Login from '../LogIn/LogIn'
+import SignUp from '../SignUp/SignUp'
 
 
 const AppRoutes = () => {
@@ -12,7 +14,9 @@ let routes = useRoutes ([
     {path: '/', element: <Home/>},
     {path: '/shopping-cart', element: <ShoppingCart/>},
     {path: '/user-profile', element: <UserProfile/>},
-    {path:'/signIn', element:<SignIn/>},
+    {path:'/LogIn', element:<Login/>},
+    {path:'/SignUp', element:<SignUp/>},
+
     {path: '*', element: <NotFound/>}
 
 ])

@@ -26,7 +26,13 @@ function  Home() {
                 title="Bono celebracion" 
                 content="Este bono representa la siembra y mantenimiento de un árbol nativo; ideal para celebrar momentos como: cumpleaños, matrimonios, grados, nacimientos, aniversarios u otro acontecimiento." 
                 buttonText="Ver más"
-                modalContent={<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ex distinctio magni dolor officiis tempore deserunt rem cum a eligendi neque harum fugit, ad sint dignissimos possimus, aperiam quia fuga eveniet!</p>}
+                modalContent={<p>Incluye: <br />
+
+                  Siembra de un árbol nativo <br />
+                  Mantenimiento por 18 meses <br />
+                  Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br />
+                  Placa con numeración del árbol <br />
+                  Envío de bono físico a la persona a quien está dirigido (territorio nacional)</p>}
             />
             </div>
             <div className="bonos2">

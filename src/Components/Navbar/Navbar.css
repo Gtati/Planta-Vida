@@ -65,49 +65,19 @@
     transform-origin: bottom left;
   }
   
-  .btn-login {
-    width: 7rem;
-    height: 2.5rem;
-    background: #0c4537;
-    color: white;
-    border: 2px solid rgb(14, 53, 24);
-    border-radius: 2rem;
+
+
+  .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-    margin-top: .8rem;
-    margin-right: 2rem;
-    padding-bottom: 1rem;
   }
   
-  .btn-login:hover {
-    background-color: #085a46;
-  }
-  
-  .btn-login:focus {
-    outline: none;
-  }
-  
-  @media (max-width: 768px) {
-    .container-items {
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem 0;
+  .btn{
+    color: White ;
+    text-decoration: none;
+    margin-left: 1rem;
     }
-  
-    .itemNavbar {
-      flex-direction: column;
-      align-items: center;
-      margin-top: 1rem;
-    }
-  
-    .logo {
-      padding-bottom: 1rem;
-    }
-  
-    .btn-login {
-      margin-top:1rem;
-      background: #0c4537;
-  }
-  }
-  
+ 
