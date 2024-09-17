@@ -56,7 +56,7 @@ function Carousel() {
         <img src={images[currentIndex]} alt={`Imagen ${currentIndex + 1}`} />
       </div>
       
-<div className='button'>
+<div>
       {/* Botones de navegación con íconos */}
       <button className="carousel-arrow left-arrow" onClick={goToPrevious}>
         <FaArrowLeft />

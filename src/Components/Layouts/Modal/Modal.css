@@ -18,9 +18,10 @@
   width: 60%;
   height: 2rem;
   border-radius: 5px;
-  background: linear-gradient(0.25turn, #199202, #7cd900, #199202);
+  background: #0c4537;
   border: none;
   cursor: pointer;
+  color: white;
 }
 
 .modal-popup {
@@ -30,6 +31,10 @@
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .close-mark {
@@ -51,4 +56,5 @@
   display: flex;
   justify-content: center;
   align-items:center;
+  text-align: start;
 }

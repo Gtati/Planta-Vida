@@ -117,15 +117,13 @@
 }
 
 .preguntas-frecuentes{
-    margin: 6.5rem;
+    margin: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
-   
-
-   
+  
 }
 
 .preguntas-frecuentes h2{

@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import { UserContext } from '../../UserContext/UserContext';
 import Swal from "sweetalert2";
 import './SignUp.css';
 
 const SignUp = () => {
+  const { setUserData } = useContext(UserContext);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -33,8 +35,14 @@ const SignUp = () => {
       return;
     }
   
-    // Si las contraseñas coinciden
-    console.log('Datos enviados:', formData);
+    // Guardar datos en el contexto
+    setUserData({
+      fullName: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+    });
+
+    navigate('/user-profile');  // Redirigir a la página de perfil
   };
 
   const handleCancel = () => {
@@ -42,7 +50,6 @@ const SignUp = () => {
   };
 
   return (
-        <>
     <div className="signup-container" >
       <div className="signup-box">
         <div className="signup-logo">
@@ -131,7 +138,6 @@ const SignUp = () => {
         </form>
       </div>
     </div>
-        </>
   );
 };
 
