@@ -11,7 +11,7 @@
     flex-direction: column;
     background-color:#052d23 ;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     text-align: center;
     margin-top: 3rem;
     
@@ -40,7 +40,7 @@
     align-items: center;
     background-color: #052d23 ;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
    
 }
 
@@ -54,7 +54,7 @@
     text-align: center;
     border-radius: 1rem;
     color: #052d23;
-    margin: 5rem;
+    margin: 4rem;
 }
 .bonos2{
     width: 18rem;
@@ -112,7 +112,7 @@
     align-items: center;
     background-color: #052d23 ;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     
 }
 
@@ -137,7 +137,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 100%;
 
 }
 
@@ -145,7 +145,7 @@
     background-color:  #052d23 ;
     padding-top: 1rem;
     height: 10rem;
-    width: 100vw;
+    width: 100%;
 }
 .containerBonos{
     width: 95%;

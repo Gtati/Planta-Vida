@@ -56,25 +56,25 @@
 }
 
 .profile-image {
-  border-radius: 50%;
+  border-radius: 50% ;
   width: 150px;
   height: 150px;
   margin-bottom: 10px;
   object-fit: cover;
+  background-color: #e2fea5;
   flex-shrink: 0; /* Evita que la imagen se reduzca demasiado */
 }
 
-.information {
-  flex: 1; /* Para que ocupe el espacio restante al lado de la imagen */
-  margin-left: 20px;
+.information-user {
+  margin-right: 5rem;
 }
 
-.information h2 {
-  margin-bottom: 10px;
+.information-user h2 {
+  margin-bottom: 5px;
 }
 
-.information p {
-  margin-bottom: 10px;
+.information-user p {
+  margin-bottom: 5px;
 }
 
 .image-upload {
@@ -82,7 +82,6 @@
   display: flex;
   flex-direction: column; /* Alinea el botón de subir imagen debajo de la imagen de perfil */
   align-items: center;
-  flex-basis: 100%; /* Hace que el botón ocupe el 100% del ancho disponible */
 }
 
 .image-upload label {
@@ -114,23 +113,6 @@ input[type="file"] {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   width: 15vw;
-  transition: background-color 0.3s;
-}
-
-.save-button:hover {
-  background-color: #1f5c3a;
-}
-
-.cancel-button {
-  border: solid 2px #215e3b;
-  background-color: #fff;
-  color: #222;
-  padding: 10px 15px;
-  border-radius: 7px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
   transition: background-color 0.3s;
 }
 
@@ -203,7 +185,7 @@ input[type="file"] {
   margin-top: 30px;
 }
 
-.button {
+.save-button {
   border: solid 2px #215e3b;
   background-color: #052d23;
   color: #fff;
@@ -213,8 +195,9 @@ input[type="file"] {
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  width: 15vw;
+  width: 20vw;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 .save-button:hover {
@@ -231,9 +214,16 @@ input[type="file"] {
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
+  width: 20vw;
   transition: background-color 0.3s;
 }
 
 .cancel-button:hover {
   background-color: #e2fea5;
 }
+ .tree-section h3{
+  color: white;
+ }
+ .arbol{
+  color: #e2fea5;
+ }

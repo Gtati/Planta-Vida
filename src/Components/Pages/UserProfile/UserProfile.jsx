@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Importamos useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../../UserContext/UserContext';
 import "./UserProfile.css"; 
 import { FaHome } from "react-icons/fa";
@@ -9,14 +9,14 @@ import { LocationCard } from "../../Layouts/LocationCard/LocationCard";
 const UserProfile = () => {
   const { userData } = useContext(UserContext);
   const [profileImage, setProfileImage] = useState("src/assets/user.png");
-  const navigate = useNavigate(); // Usamos useNavigate para redirigir
+  const navigate = useNavigate(); 
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setProfileImage(reader.result); // Guardamos la imagen del perfil
+        setProfileImage(reader.result);
       };
       reader.readAsDataURL(file);
     }
@@ -31,7 +31,7 @@ const UserProfile = () => {
     });
   };
 
-  // Función para redirigir a la página principal al hacer clic en "Cerrar Sesión"
+
   const handleCancel = () => {
     // Puedes agregar lógica para cerrar sesión aquí si es necesario
 
@@ -51,11 +51,11 @@ const UserProfile = () => {
         {/* Sección de Información del Usuario */}
         <div className="info-section user-section">
           {/* Mostrar la imagen de perfil subida o la imagen por defecto */}
-          <img src={profileImage} alt="Profile" className="profile-image" />
+          <img src={profileImage} alt="" className="profile-image" />
           <div className="information-user">
             <h2>{userData.fullName || "Nombre no disponible"}</h2>
-            <p><strong>Phone:</strong> {userData.phone || "Teléfono no disponible"}</p>
-            <p><strong>Email:</strong> {userData.email || "Correo no disponible"}</p>
+            <p><strong>Telefono:</strong> {userData.phone || "Teléfono no disponible"}</p>
+            <p><strong>Correo Electrónico:</strong> {userData.email || "Correo no disponible"}</p>
           </div>
           <div className="image-upload">
             <label>Subir Imagen de Perfil</label>
@@ -69,13 +69,16 @@ const UserProfile = () => {
 
         {/* Sección del Árbol */}
         <div className="tree-section">
-          <h3>Nombre del Árbol: <span>Roble</span></h3>
+          <h3>Nombre del Árbol: <span className="arbol">Roble</span></h3>
 
           {/* Contenedor de tarjetas de características y localización */}
           <div className="tree-info-cards">
             <div className="tree-card">
               <h4>Características</h4>
-              <p>Árbol robusto, de tronco grueso y con una gran capacidad para crecer en diversas condiciones climáticas.</p>
+              <p>Los robles pueden alcanzar entre 20 y 40 metros de altura, con un tronco grueso que puede llegar a medir hasta 2 metros de diámetro.</p>
+              <p>Es un árbol de crecimiento lento, lo que contribuye a la dureza de su madera.</p>
+              <p>Produce bellotas, que son esenciales para la alimentación de muchos animales, como ardillas, jabalíes y aves.</p>
+              <p>Los robles son árboles muy longevos, algunos pueden vivir varios cientos de años. Existen ejemplares que han superado los 1,000 años.</p>
             </div>
             <div className="tree-card">
               <h4>Localización</h4>
@@ -93,8 +96,8 @@ const UserProfile = () => {
 
         {/* Botones Guardar y Cancelar al final */}
         <div className="buttons-container">
-          <button className="button save-button" onClick={handleSave}>Guardar</button>
-          <button className="button cancel-button" onClick={handleCancel}>Cerrar Sesión</button>
+          <button className="save-button" onClick={handleSave}>Guardar</button>
+          <button className="cancel-button" onClick={handleCancel}>Cerrar Sesión</button>
         </div>
       </div>
     </div>

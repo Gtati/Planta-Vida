@@ -24,7 +24,7 @@ function  Home() {
            <div className="bonos1">
             <Card 
                 title="Bono celebracion" 
-                content="Este bono representa la siembra y mantenimiento de un árbol nativo; ideal para celebrar momentos como: cumpleaños, matrimonios, grados, nacimientos, aniversarios u otro acontecimiento." 
+                content="Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas, graduaciones u otros momentos especiales." 
                 buttonText="Ver más"
                 modalContent={<p>Incluye: <br />
                 <br />

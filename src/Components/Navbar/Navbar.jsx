@@ -23,7 +23,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link smooth to='/#preguntas-frecuentes' className='container1'>
-            Preguntas Frecuentes
+            Formas de Adquirir Bono
           </Link>
         </li>
         <li>

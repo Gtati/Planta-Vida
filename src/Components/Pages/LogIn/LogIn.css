@@ -10,7 +10,7 @@
     align-items: center;
     min-height: 100vh;
     background-color: #052d23;
-    background-image: url('../../../assets/background-image.jpg')
+    background-image: url('../../../assets/background-image.jpg');
   }
   
   .login-box {
@@ -24,11 +24,20 @@
     text-align: center;
     color: #fff;
     font-family: 'Roboto', sans-serif;
+    position: relative; /* Añadir para posicionar el ícono internamente */
   }
   
   .login-logo img {
     width: 150px;
     margin-bottom: 20px;
+  }
+  
+  .home-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px; /* Tamaño del ícono */
+    color: white;
   }
   
   .login-title {

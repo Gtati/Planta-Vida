@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { FaHome } from "react-icons/fa";
 import './LogIn.css';
 
 const Login = () => {
@@ -28,6 +29,7 @@ const Login = () => {
       <div className="login-box">
         <div className="login-logo">
           <img src="src/assets/logoPlantaVida.png" alt="Logo" />
+          <Link to="/" className="home-icon"><FaHome/></Link>
         </div>
         <h2 className="login-title">Iniciar Sesión</h2>
         <form className="login-form" onSubmit={handleSubmit}>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ContactForm.css';
 import emailjs from 'emailjs-com';
+import Swal from 'sweetalert2';
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -37,11 +38,20 @@ const ContactForm = () => {
     // Enviar el correo electrónico a través de EmailJS
     emailjs.send(serviceID, templateID, templateParams, userID)
       .then((response) => {
-        console.log('Correo enviado con éxito:', response.status, response.text);
-        alert('Tu mensaje ha sido enviado con éxito');
+        Swal.fire({
+          icon: 'success',
+          title: '¡Éxito!',
+          text: 'Tu mensaje se envió correctamente.',
+          confirmButtonText: 'Ok'
+        });
       }, (error) => {
         console.error('Error al enviar el correo:', error);
-        alert('Ocurrió un error al enviar el mensaje. Intenta nuevamente.');
+        Swal.fire({
+          icon: 'error',
+          title: '¡Error!',
+          text: 'Ocurrió un error al enviar el correo. Intenta nuevamente.',
+          confirmButtonText: 'Ok'
+        });
       });
 
     // Reiniciar los datos del formulario
@@ -63,6 +73,7 @@ const ContactForm = () => {
             type="text"
             id="name"
             name="name"
+            placeholder='Nombre'
             value={formData.name}
             onChange={handleChange}
             required
@@ -74,6 +85,7 @@ const ContactForm = () => {
             type="email"
             id="email"
             name="email"
+            placeholder='Correo Electronico'
             value={formData.email}
             onChange={handleChange}
             required
@@ -85,6 +97,7 @@ const ContactForm = () => {
             type="text"
             id="subject"
             name="subject"
+            placeholder='Asunto'
             value={formData.subject}
             onChange={handleChange}
             required
