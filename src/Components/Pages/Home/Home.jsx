@@ -3,9 +3,9 @@ import Carousel from "../../Layouts/Carrousel/Carrousel"
 import {Card} from "../../Layouts/Card/Card"
 import { LocationCard } from "../../Layouts/LocationCard/LocationCard"
 import ImageLink from "../../Layouts/ImageLink/ImageLink"
-import LaAurora from '../../../assets/AuroraLogo.png'
+import LaAurora from '../../../assets/imagenes/AuroraLogo.png'
 import ContactForm from "../../Layouts/ContactForm/ContactForm"
-import Pagos from "../../../assets/formas-de-pago.jpg"
+import Pagos from "../../../assets/imagenes/formas-de-pago.jpg"
 import { Information } from "../../Layouts/Information/Information"
 import { Footer } from "../Footer/Footer"
 import './Home.css'

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import logoPlantaVida from '../../assets/logoPlantaVida.png';
+import logoPlantaVida from '../../assets/imagenes/logoPlantaVidaBlanco.png';
 import { HashLink as Link } from 'react-router-hash-link';
 import './Navbar.css';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import './LocationCard.css';
-import MapaArmenia from '../../../assets/MapaArmenia.png'
+import MapaArmenia from '../../../assets/imagenes/MapaArmenia.png'
 
 export const LocationCard = () => {
 

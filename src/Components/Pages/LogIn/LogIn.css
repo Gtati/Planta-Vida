@@ -10,7 +10,7 @@
     align-items: center;
     min-height: 100vh;
     background-color: #052d23;
-    background-image: url('../../../assets/background-image.jpg');
+    background-image: url('../../../assets/imagenes/background-image.jpg');
   }
   
   .login-box {

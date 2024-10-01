@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
+import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
 import './LogIn.css';
 
 const Login = () => {
@@ -28,7 +29,7 @@ const Login = () => {
     <div className="login-container">
       <div className="login-box">
         <div className="login-logo">
-          <img src="src/assets/logoPlantaVida.png" alt="Logo" />
+          <img src={Logo} alt="Logo" />
           <Link to="/" className="home-icon"><FaHome/></Link>
         </div>
         <h2 className="login-title">Iniciar Sesión</h2>
