@@ -8,6 +8,7 @@ import { LocationCard } from "../../Layouts/LocationCard/LocationCard";
 import Roble1 from '../../../assets/imagenes/roble1.jpg'
 import Roble2 from '../../../assets/imagenes/roble2.jpg'
 import Roble3 from '../../../assets/imagenes/roble3.jpg'
+import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
 
 
 const UserProfile = () => {
@@ -48,7 +49,7 @@ const UserProfile = () => {
       <div className="user-profile-content">
         {/* Header con Logo e Icono para ir al Home */}
         <header className="user-profile-header">
-          <img src="src/assets/logoPlantaVida.png" alt="Logo" className="logo" />
+          <img src={Logo} alt="Logo" className="logo" />
           <Link to="/" className="home-icon"><FaHome/></Link>
         </header>
 
