@@ -57,7 +57,6 @@ function Carousel() {
       </div>
       
 <div>
-      {/* Botones de navegación con íconos */}
       <button className="carousel-arrow left-arrow" onClick={goToPrevious}>
         <FaArrowLeft />
       </button>

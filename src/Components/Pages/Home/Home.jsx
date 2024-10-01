@@ -16,6 +16,8 @@ function  Home() {
       <Navbar/>
       <section id="quienes-somos" className="QuienesSomos">
             <div className="quienes-somos">
+              <h2 className="title">Un programa liderado por <span className="title-span">La Cámara de Comercio de Armenia y del Quindío</span></h2>
+              <h3 className="title-text">Más allá de plantar un árbol, este bono es símbolo de vida, un aporte al bienestar del planeta y al recuerdo de momentos memorables, que se prolongan desde la semilla hasta el crecimiento de un nuevo ser...</h3>
                 <Carousel/>
             </div>
            </section>

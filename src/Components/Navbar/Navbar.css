@@ -26,58 +26,110 @@
     padding: 0;
   }
   
-  .container-items {
-    display: flex;
-    justify-content: space-between;
-    background-color: #052d23;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .container1 {
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding-right: 1.5rem;
-    color: white;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .container1::after {
-    content: "";
-    position: absolute;
-    width: 85%;
-    height: 2px;
-    background-color: #e3ff9f;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .container1:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-  
+ /* Estilos iniciales para la navbar */
+.container-items {
+  display: flex;
+  height: 5rem;
+  justify-content: space-between;
+  background-color: #052d23;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  padding: 1rem;
+  backdrop-filter: blur(21px);
+}
 
+/* Estilos para cuando se hace scroll */
+.container-items.scrolled {
+  background-color:  rgba(33, 74, 50, 0.5); /* Aumenta la opacidad al hacer scroll */
+  z-index: 10;
+  backdrop-filter: blur(21px);
+  max-width: 98%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  border-radius: 25px;
+  margin-top: 15px;
+}
 
-  .buttons{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .btn{
-    color: White ;
-    text-decoration: none;
-    margin-left: 1rem;
-    }
- 
+/* Mantén los estilos originales de los elementos internos */
+.logo-list {
+  list-style: none;
+}
+
+.logo {
+  height: 4rem;
+  width: auto;
+  padding-right: 2rem;
+  transition: height 0.3s ease;
+}
+
+.scrolled .logo {
+  height: 3.5rem; /* Reduce ligeramente el tamaño del logo al hacer scroll */
+}
+
+.itemNavbar {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container1 {
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding-right: 1.5rem;
+  color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.container1::after {
+  content: "";
+  position: absolute;
+  width: 85%;
+  height: 2px;
+  background-color: #e3ff9f;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.container1:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.btn {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+
+.register{
+  border: solid 1px #fff;
+  height: 2.5rem;
+  width: 7rem;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.register:hover{
+  background-color: #e3ff9f;
+  color: #222;
+  transition: 500ms;
+}
