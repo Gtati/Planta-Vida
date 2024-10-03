@@ -133,3 +133,19 @@
   color: #222;
   transition: 500ms;
 }
+
+@media screen and (max-width: 1279px){
+
+}
+
+@media screen and (max-width: 920px){
+
+}
+
+@media screen and (max-width: 768px){
+
+}
+
+@media screen and (max-width: 480px){
+
+}
