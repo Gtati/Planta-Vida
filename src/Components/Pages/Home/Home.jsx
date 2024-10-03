@@ -8,6 +8,7 @@ import ContactForm from "../../Layouts/ContactForm/ContactForm"
 import Pagos from "../../../assets/imagenes/formas-de-pago.jpg"
 import { Information } from "../../Layouts/Information/Information"
 import { Footer } from "../Footer/Footer"
+import { FaTree } from "react-icons/fa";
 import './Home.css'
 function  Home() {
 
@@ -21,52 +22,74 @@ function  Home() {
                 <Carousel/>
             </div>
            </section>
-           <section id="nuestros-planes" className="NuestrosPlanes">
-            <div className="containerBonos">
-           <div className="bonos1">
-            <Card 
-                title="Bono celebracion" 
-                content="Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas, graduaciones u otros momentos especiales." 
-                buttonText="Ver más"
-                modalContent={<p>Incluye: <br />
-                <br />
-                  ◆ Siembra de un árbol nativo <br /> <br />
-                  ◆ Mantenimiento por 18 meses <br /> <br />
-                  ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
-                  ◆ Placa con numeración del árbol <br /> <br />
-                  ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)</p>}
-            />
-            </div>
-            <div className="bonos2">
-            <Card 
-                title="Bono exequial" 
-                content="Este bono es destinado a homenajear a una persona fallecida y recordar su existencia con la siembra de un árbol." 
-                buttonText="Ver Más"
-                modalContent={<p>Incluye: <br />
-                  <br />
-                    ◆ Siembra de un árbol nativo <br /> <br />
-                    ◆ Mantenimiento por 18 meses <br /> <br />
-                    ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
-                    ◆ Placa con numeración del árbol <br /> <br />
-                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)</p>}
-            />
-            </div>
-            <div className="bonos3">
-            <Card 
-                title="Bono Aporte Ambiental" 
-                content="Con este bono apoya la conservación y recuperación de los bosques de las zonas urbanas y rurales del departamento del Quindío." 
-                buttonText="Ver Más"
-                modalContent={<p>Incluye: <br />
-                  <br />
-                    ◆ Siembra de un árbol nativo <br /> <br />
-                    ◆ Mantenimiento por 18 meses <br /> <br />
-                    ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
-                    ◆ Placa con numeración del árbol <br /> <br />
-                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)</p>}
-            />
-            </div>
-            </div>
-           </section>
+<section id="nuestros-planes" className="NuestrosPlanes">
+  <div className="containerBonos">
+    <div className="header-bonos">
+      <FaTree className="tree-icon"/>
+      <h2 className="title-bonos">Nuestros Planes</h2>
+    </div>
+
+    <div className="cards-container">
+      <div className="bonos1">
+        <Card
+          title="Bono Celebración"
+          content="Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas, graduaciones u otros momentos especiales."
+          buttonText="Ver más"
+          modalContent={
+            <p>
+              Incluye: <br />
+              <br />
+              ◆ Siembra de un árbol nativo <br /> <br />
+              ◆ Mantenimiento por 18 meses <br /> <br />
+              ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
+              ◆ Placa con numeración del árbol <br /> <br />
+              ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)
+            </p>
+          }
+        />
+      </div>
+
+      <div className="bonos2">
+        <Card
+          title="Bono Exequial"
+          content="Este bono está diseñado para rendir homenaje a una persona fallecida, ofreciendo una manera significativa de honrar su memoria."
+          buttonText="Ver Más"
+          modalContent={
+            <p>
+              Incluye: <br />
+              <br />
+              ◆ Siembra de un árbol nativo <br /> <br />
+              ◆ Mantenimiento por 18 meses <br /> <br />
+              ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
+              ◆ Placa con numeración del árbol <br /> <br />
+              ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)
+            </p>
+          }
+        />
+      </div>
+
+      <div className="bonos3">
+        <Card
+          title="Bono Aporte Ambiental"
+          content="Con este bono apoya la conservación y recuperación de los bosques de las zonas urbanas y rurales del departamento del Quindío."
+          buttonText="Ver Más"
+          modalContent={
+            <p>
+              Incluye: <br />
+              <br />
+              ◆ Siembra de un árbol nativo <br /> <br />
+              ◆ Mantenimiento por 18 meses <br /> <br />
+              ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
+              ◆ Placa con numeración del árbol <br /> <br />
+              ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)
+            </p>
+          }
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
            <section id="preguntas-frecuentes" className="PreguntasFrecuentes">
             <div className="containerPreguntas">
             <div className="preguntas-frecuentes">

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Card.css';
 import { Modal } from '../Modal/Modal';
+import { FaTree } from "react-icons/fa6";
 
 export const Card = ({ title, content, buttonText, modalContent }) => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -15,6 +16,8 @@ export const Card = ({ title, content, buttonText, modalContent }) => {
 
   return (
     <div className="bono">
+      <FaTree className='circle-icon'/>
+      <hr className="bono-line" />
       <h2 className="title-card">{title}</h2>
       <p className="text-card">{content}</p>
       <button className="button-card" onClick={handleOpenModal}>
