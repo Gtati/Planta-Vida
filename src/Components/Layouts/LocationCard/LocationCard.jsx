@@ -6,8 +6,8 @@ export const LocationCard = () => {
   const position = [4.545118, -75.680350]; 
 
   const styleMap = {
-    height: '17rem',
-    width: '17rem',
+    height: '14rem',
+    width: '14rem',
     border: 'solid 1px #000000',
     borderRadius: '20px'
   }
