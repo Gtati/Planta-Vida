@@ -9,7 +9,8 @@ export const LocationCard = () => {
     height: '14rem',
     width: '14rem',
     border: 'solid 1px #000000',
-    borderRadius: '20px'
+    borderRadius: '20px',
+    zIndex: 1
   }
 
   return (

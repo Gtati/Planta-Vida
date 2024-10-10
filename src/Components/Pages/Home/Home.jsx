@@ -72,7 +72,7 @@ function Home() {
 
             <div className="bonos3">
               <Card
-                title="Bono Aporte Ambiental"
+                title="Bono Ambiental"
                 content="Con este bono apoya la conservación y recuperación de los bosques de las zonas urbanas y rurales del departamento del Quindío."
                 buttonText="Ver Más"
                 modalContent={
@@ -93,11 +93,13 @@ function Home() {
       </section>
 
       <section id="preguntas-frecuentes" className="PreguntasFrecuentes">
+      
         <div className="containerPreguntas">
-          <div className="header-preguntas">
+        <div className="header-preguntas">
             <GoGift />
             <h2>Formas de Adquirir el Bono</h2>
           </div>
+          <div className="formas-bono">
           <div className="preguntas-frecuentes">
             <h2>Nuestra Ubicacion</h2>
             <LocationCard />
@@ -118,6 +120,7 @@ function Home() {
               altText="Descripción de la imagen"
             />
           </div>
+        </div>
         </div>
       </section>
       <section id="contacto" className="FormularioContacto">

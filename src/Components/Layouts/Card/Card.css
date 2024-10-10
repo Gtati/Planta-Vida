@@ -14,3 +14,9 @@
     margin: 2rem auto 0; 
     border: none;
 }
+@media(max-width: 920px){
+    .circle-icon{
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+}
