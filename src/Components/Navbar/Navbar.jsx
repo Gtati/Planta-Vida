@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logoPlantaVida from '../../assets/imagenes/logoPlantaVidaBlanco.png';
 import { HashLink as Link } from 'react-router-hash-link';
+import { HiShoppingBag } from "react-icons/hi2";
 import './Navbar.css';
 
 const Navbar = () => {
@@ -56,6 +57,9 @@ const Navbar = () => {
         </li>
       </ul>
       <div className='buttons'>
+      <Link smooth to='/shopping-cart' className='btn'>
+      <HiShoppingBag className='shopi-bag'/>
+        </Link>
         <Link smooth to='/LogIn' className='btn'>
           Iniciar Sesión
         </Link>

@@ -39,13 +39,12 @@ function Home() {
                 buttonText="Ver más"
                 modalContent={
                   <p>
-                    Incluye: <br />
-                    <br />
                     ◆ Siembra de un árbol nativo <br /> <br />
                     ◆ Mantenimiento por 18 meses <br /> <br />
-                    ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
+                    ◆ Reporte de seguimiento del árbol por medio de la página web: <span className="resalto"> www.plantavida.camaraarmenia.org.co. </span><br /> <br />
                     ◆ Placa con numeración del árbol <br /> <br />
-                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)
+                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional) <br /> <br />
+                    ◆ Valor: <span className="resalto"> $100.000 </span>
                   </p>
                 }
               />
@@ -58,13 +57,12 @@ function Home() {
                 buttonText="Ver Más"
                 modalContent={
                   <p>
-                    Incluye: <br />
-                    <br />
                     ◆ Siembra de un árbol nativo <br /> <br />
                     ◆ Mantenimiento por 18 meses <br /> <br />
-                    ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
+                    ◆ Reporte de seguimiento del árbol por medio de la página web: <span className="resalto"> www.plantavida.camaraarmenia.org.co. </span><br /> <br />
                     ◆ Placa con numeración del árbol <br /> <br />
-                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)
+                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional) <br /> <br />
+                    ◆ Valor: <span className="resalto"> $100.000 </span>
                   </p>
                 }
               />
@@ -77,13 +75,12 @@ function Home() {
                 buttonText="Ver Más"
                 modalContent={
                   <p>
-                    Incluye: <br />
-                    <br />
                     ◆ Siembra de un árbol nativo <br /> <br />
                     ◆ Mantenimiento por 18 meses <br /> <br />
-                    ◆ Reporte de seguimiento del árbol por medio de la página web www.plantavida.camaraarmenia.org.co. <br /> <br />
+                    ◆ Reporte de seguimiento del árbol por medio de la página web: <span className="resalto"> www.plantavida.camaraarmenia.org.co. </span><br /> <br />
                     ◆ Placa con numeración del árbol <br /> <br />
-                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional)
+                    ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional) <br /> <br />
+                    ◆ Valor: <span className="resalto"> $100.000 </span>
                   </p>
                 }
               />

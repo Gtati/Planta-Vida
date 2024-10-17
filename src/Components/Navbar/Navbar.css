@@ -136,6 +136,13 @@
   transition: 500ms;
 }
 
+.shopi-bag{
+  color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 10px;
+}
+
 @media(max-width: 920px) {
 
 }

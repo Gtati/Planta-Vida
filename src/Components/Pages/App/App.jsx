@@ -3,7 +3,7 @@ import Home from '../Home/Home';
 import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import NotFound from '../NotFound/NotFound';
 import UserProfile from '../UserProfile/UserProfile';
-import { UserProvider } from '../../UserContext/UserContext'; // Importa el UserProvider
+import { UserProvider } from '../../UserContext/UserContext';
 import './App.css';
 
 import Login from '../LogIn/LogIn';

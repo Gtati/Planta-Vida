@@ -1,9 +1,11 @@
+import Navbar from "../../Navbar/Navbar"
+
 function ShoppingCart() {
 
     return(
-      <div>
-         🛒
-      </div>
+     <>
+     <Navbar/>
+     </>
     )
   
   }
