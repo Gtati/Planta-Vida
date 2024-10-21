@@ -4,6 +4,7 @@ import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import NotFound from '../NotFound/NotFound';
 import UserProfile from '../UserProfile/UserProfile';
 import { UserProvider } from '../../UserContext/UserContext';
+import { CartProvider } from '../../Layouts/CartContext/CartContext';
 import './App.css';
 
 import Login from '../LogIn/LogIn';
@@ -25,9 +26,11 @@ const AppRoutes = () => {
 const App = () => {
   return (
     <BrowserRouter>
+    <CartProvider>
       <UserProvider>
         <AppRoutes />
       </UserProvider>
+    </CartProvider>
     </BrowserRouter>
   );
 };
