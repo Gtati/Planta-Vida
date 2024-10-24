@@ -221,11 +221,11 @@ body {
 .itemNavbar li {
   margin: 15px 0;
 }
-
+/* 
 .itemNavbar li:hover{
   color: #daff99;
   text-decoration: underline;
-}
+} */
 
 /* Estilos responsivos */
 @media (max-width: 920px) {

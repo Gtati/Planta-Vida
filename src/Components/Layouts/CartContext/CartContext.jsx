@@ -1,25 +1,23 @@
-// CartContext.js
 import React, { createContext, useContext, useState } from 'react';
 
-// Crear el contexto del carrito
-const CartContext = createContext();
+export const CartContext = createContext();
 
 // Proveedor del contexto del carrito
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState(0); // Aquí puedes manejar los artículos del carrito
+  const [selectedBono, setSelectedBono] = useState(null); // Estado para el bono seleccionado
+  const [cartItems, setCartItems] = useState(0); // Contador de artículos en el carrito
 
-  // Función para añadir un artículo al carrito (ejemplo)
   const addToCart = () => {
     setCartItems(cartItems + 1);
   };
 
-  // Función para vaciar el carrito (ejemplo)
-  const clearCart = () => {
-    setCartItems(0);
+  const removeBono = () => {
+    setSelectedBono(null); // Eliminar el bono
+    setCartItems(0); // Si quieres que se reinicie el contador
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, clearCart }}>
+    <CartContext.Provider value={{ selectedBono, setSelectedBono, removeBono, cartItems, addToCart }}>
       {children}
     </CartContext.Provider>
   );

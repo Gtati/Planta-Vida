@@ -9,7 +9,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-  const { cartItems } = useCart();
+  const { cartItems } = useCart(); // Obtiene el número de artículos en el carrito
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 0);
@@ -67,9 +67,9 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <HiShoppingBag className='shopi-bag' />
-            {cartItems > 0 && <div className="cart-indicator">{cartItems}</div>}
+            {cartItems > 0 && <div className="cart-indicator">{cartItems}</div>} {/* Muestra el contador */}
             {cartItems === 0 && isHovered && (
-              <div className="cart-tooltip">El carrito está vacío</div>
+              <div className="cart-tooltip">El carrito está vacío</div> // Tooltip para carrito vacío
             )}
           </div>
         </Link>

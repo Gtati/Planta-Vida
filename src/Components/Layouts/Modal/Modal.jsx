@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useContext } from 'react';
 import { useCart } from '../CartContext/CartContext'; // Importamos el contexto del carrito
+import { BonoContext } from '../../Layouts/BonoContext/BonoContext'; // Importamos el BonoContext
 import './Modal.css';
 import { FaXmark } from "react-icons/fa6";
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
   const [isVisible, setIsVisible] = useState(isOpen);
   const [closing, setClosing] = useState(false);
-  const { addToCart } = useCart(); // Usamos el contexto
+  const { addToCart } = useCart(); // Usamos el contexto del carrito
+  const { setSelectedBono } = useContext(BonoContext); // Usamos el contexto del bono
 
   useEffect(() => {
     if (isOpen) {
@@ -33,13 +36,19 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
     }, 300);
   };
 
+  // Manejar cuando el usuario hace clic en "Añadir Al Carrito"
+  const handleAddToCart = () => {
+    setSelectedBono(title); // Establece el bono seleccionado en el contexto de Bono
+    addToCart(); // Añadir el bono al carrito usando el contexto del carrito
+  };
+
   return isVisible ? (
     <div className={`modal-overlay ${isOpen && !closing ? 'show' : ''}`}>
       <div className={`modal-popup ${closing ? 'fade-out' : ''}`}>
         <h2>{title}</h2>
         <FaXmark onClick={handleClose} className="close-mark" />
         <div className="modal-body">{children}</div>
-        <button className="carrito-button" onClick={addToCart}>
+        <button className="carrito-button" onClick={handleAddToCart}>
           Añadir Al Carrito
         </button>
       </div>
