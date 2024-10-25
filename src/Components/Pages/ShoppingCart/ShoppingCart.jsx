@@ -1,13 +1,28 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; // Para redirección
 import Navbar from '../../Navbar/Navbar';
 import { CartContext } from '../../Layouts/CartContext/CartContext'; // Importar CartContext
+import { BonoContext } from '../../Layouts/BonoContext/BonoContext'; // Importar BonoContext
 import Swal from 'sweetalert2'; // Importar SweetAlert
 import './ShoppingCart.css';
 
 const ShoppingCart = () => {
-  const { selectedBono, removeBono } = useContext(CartContext); // Extraer removeBono del contexto
+  const { removeBono } = useContext(CartContext); // Extraer removeBono del contexto del carrito
+  const { selectedBono, setSelectedBono } = useContext(BonoContext); // Obtener selectedBono desde BonoContext
   const navigate = useNavigate(); // Hook para redirección
+
+  // Redirigir si no hay bono seleccionado
+  useEffect(() => {
+    if (!selectedBono) {
+      Swal.fire({
+        title: "Carrito vacío",
+        text: "Por favor, selecciona un bono antes de acceder al carrito.",
+        icon: "info",
+      }).then(() => {
+        navigate('/#nuestros-planes');
+      });                     
+    }
+  }, [selectedBono, navigate]);
 
   const handleDeleteBono = () => {
     Swal.fire({
@@ -20,13 +35,14 @@ const ShoppingCart = () => {
       confirmButtonText: "Sí, eliminarlo!"
     }).then((result) => {
       if (result.isConfirmed) {
-        removeBono(); // Llama a removeBono para eliminar el bono
+        setSelectedBono(null); // Elimina el bono en el BonoContext
+        removeBono(); // Llama a removeBono para actualizar el estado del carrito
         Swal.fire({
           title: "¡Eliminado!",
           text: "Tu bono ha sido eliminado.",
           icon: "success"
         }).then(() => {
-          navigate('/bonos'); // Redirige a la sección de bonos
+          navigate('/#nuestros-planes'); // Redirige a la sección de bonos
         });
       }
     });
