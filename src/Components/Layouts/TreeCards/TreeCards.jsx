@@ -1,6 +1,7 @@
 import React from 'react';
 import {IndividualTree} from '../IndividualTree/IndividualTree'
 import GuayacanRosado from '../../../assets/imagenes/Guayacan Rosado.jpg'
+import RobleComun from '../../../assets/imagenes/roble-comun.jpg'
 
 export const TreeCards = () => {
   return (
@@ -11,8 +12,8 @@ export const TreeCards = () => {
         link="/tree-information"
       />
       <IndividualTree
-        title="Tree 2"
-        imageUrl="url-de-la-imagen-2"
+        title="Roble Común"
+        imageUrl= {RobleComun}
         link="/tree-information"
       />
       {/* Agrega más TreeCard con distintos títulos, imágenes y links según sea necesario */}
