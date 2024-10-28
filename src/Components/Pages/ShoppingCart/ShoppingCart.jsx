@@ -1,9 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Para redirección
+import { useNavigate } from 'react-router-dom'; 
 import Navbar from '../../Navbar/Navbar';
-import { CartContext } from '../../Layouts/CartContext/CartContext'; // Importar CartContext
-import { BonoContext } from '../../Layouts/BonoContext/BonoContext'; // Importar BonoContext
-import Swal from 'sweetalert2'; // Importar SweetAlert
+import { CartContext } from '../../Layouts/CartContext/CartContext';
+import { BonoContext } from '../../Layouts/BonoContext/BonoContext'; 
+import { TreeCards } from '../../Layouts/TreeCards/TreeCards'
+import Swal from 'sweetalert2';
 import './ShoppingCart.css';
 
 const ShoppingCart = () => {
@@ -42,7 +43,7 @@ const ShoppingCart = () => {
           text: "Tu bono ha sido eliminado.",
           icon: "success"
         }).then(() => {
-          navigate('/#nuestros-planes'); // Redirige a la sección de bonos
+          navigate(''); // Redirige a la sección de bonos
         });
       }
     });
@@ -60,6 +61,7 @@ const ShoppingCart = () => {
         ) : (
           <p>No has seleccionado ningún bono aún.</p>
         )}
+        <TreeCards/>
       </div>
     </>
   );
