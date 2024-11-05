@@ -3,6 +3,7 @@ import {Link, NavLink, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext/UserContext';
 import Swal from "sweetalert2";
 import { FaHome } from "react-icons/fa";
+import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
 import './SignUp.css';
 
 const SignUp = () => {
@@ -54,7 +55,7 @@ const SignUp = () => {
     <div className="signup-container" >
       <div className="signup-box">
         <div className="signup-logo">
-          <img src="src/assets/logoPlantaVida.png" alt="Logo" />
+          <img src={Logo} alt="Logo" />
           <Link to="/" className="home-icon"><FaHome/></Link>
         </div>
         <h2 className='title-sign'> Registro</h2>

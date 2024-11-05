@@ -1,13 +1,13 @@
 .image-link-img{
-    width: 17rem;
-    height: 17rem;
+    width: 14rem;
+    height: 14rem;
     background-color: #fff;
     border-radius: 1rem;
 }
 
 .image-link{
-    width: 17.5rem;
-    height: 17.5rem; 
+    width: 14.5rem;
+    height: 14.5rem; 
     display: flex;
     align-items: center;
     justify-content: center;

@@ -5,6 +5,11 @@ import "./UserProfile.css";
 import { FaHome } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { LocationCard } from "../../Layouts/LocationCard/LocationCard";
+import Roble1 from '../../../assets/imagenes/roble1.jpg'
+import Roble2 from '../../../assets/imagenes/roble2.jpg'
+import Roble3 from '../../../assets/imagenes/roble3.jpg'
+import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
+
 
 const UserProfile = () => {
   const { userData } = useContext(UserContext);
@@ -44,7 +49,7 @@ const UserProfile = () => {
       <div className="user-profile-content">
         {/* Header con Logo e Icono para ir al Home */}
         <header className="user-profile-header">
-          <img src="src/assets/logoPlantaVida.png" alt="Logo" className="logo" />
+          <img src={Logo} alt="Logo" className="logo" />
           <Link to="/" className="home-icon"><FaHome/></Link>
         </header>
 
@@ -88,9 +93,9 @@ const UserProfile = () => {
 
           {/* Imágenes del Árbol */}
           <div className="tree-images-container">
-            <img src="src/assets/roble1.jpg" alt="Árbol 1" className="tree-image" />
-            <img src="src/assets/roble2.jpg" alt="Árbol 2" className="tree-image" />
-            <img src="src/assets/roble3.jpg" alt="Árbol 3" className="tree-image" />
+            <img src={Roble1} alt="Árbol 1" className="tree-image" />
+            <img src={Roble2} alt="Árbol 2" className="tree-image" />
+            <img src={Roble3} alt="Árbol 3" className="tree-image" />
           </div>
         </div>
 

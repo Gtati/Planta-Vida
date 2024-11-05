@@ -1,0 +1,22 @@
+
+.circle-icon{
+    width: 6rem;
+    height: 6rem;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
+.bono-line {
+    background-color: #0c4537;
+    height: 2px;
+    width: 87%;
+    margin: 2rem auto 0; 
+    border: none;
+}
+@media(max-width: 920px){
+    .circle-icon{
+        width: 4.5rem;
+        height: 4.5rem;
+    }
+}

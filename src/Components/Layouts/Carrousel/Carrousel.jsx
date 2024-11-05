@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'; // Importamos los íconos de FontAwesome
-import image1 from '../../../assets/pln.jpg';
-import image2 from  '../../../assets/img4.jpg';
-import image3 from  '../../../assets/img2.jpeg';
-import image4 from  '../../../assets/manoarbol.avif';
-import image5 from  '../../../assets/carrouselimg1.jpg';
+import image1 from '../../../assets/imagenes/img1.jpg';
+import image2 from  '../../../assets/imagenes/img2.jpg';
+import image3 from  '../../../assets/imagenes/img3.jpg';
+import image4 from  '../../../assets/imagenes/img4.jpg';
+import image5 from  '../../../assets/imagenes/img5.avif';
 import './Carrousel.css';
 
 const images = [image1, image2, image3, image4, image5];
@@ -57,7 +57,6 @@ function Carousel() {
       </div>
       
 <div>
-      {/* Botones de navegación con íconos */}
       <button className="carousel-arrow left-arrow" onClick={goToPrevious}>
         <FaArrowLeft />
       </button>

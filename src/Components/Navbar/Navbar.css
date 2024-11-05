@@ -1,83 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .logo-list {
-    list-style: none;
-  }
-  
-  .logo {
-    height: 4rem;
-    width: auto;
-    padding-right: 2rem;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+/* Estilos base para la navbar */
+.container-items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+  background-color: #052d23;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  padding: 1rem;
+  backdrop-filter: blur(21px);
+}
+
+.container-items.scrolled {
+  background-color: rgba(33, 74, 50, 0.5);
+  z-index: 10;
+  backdrop-filter: blur(21px);
+  max-width: 98%;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  border-radius: 25px;
+  margin-top: 15px;
+}
+
+/* Logo */
+.logo-list {
+  list-style: none;
+}
+
+.logo {
+  height: 4rem;
+  width: auto;
+  padding-right: 2rem;
+  transition: height 0.3s ease;
+}
+
+.scrolled .logo {
+  height: 3.5rem;
+}
+
+/* Enlaces de la navbar */
+.itemNavbar {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container1 {
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding-right: 1.5rem;
+  color: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.container1::after {
+  content: "";
+  position: absolute;
+  width: 85%;
+  height: 2px;
+  background-color: #e3ff9f;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.container1:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Botones de carrito, login y registro */
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 101;
+  cursor: pointer;
+}
+
+.buttons .btn {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+  z-index: 101;
+}
+
+.register {
+  border: solid 1px #fff;
+  height: 2.5rem;
+  width: 7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: background-color 500ms;
+}
+
+.register:hover {
+  background-color: #e3ff9f;
+  color: #222;
+}
+
+.shopi-bag {
+  color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+/* Estilos del carrito */
+.cart-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-tooltip {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffff;
+  color: #272727;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cart-container:hover .cart-tooltip {
+  opacity: 1;
+}
+
+.cart-indicator {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: #ff4b4b;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 8px;
+  font-size: 12px;
+  z-index: 50;
+}
+
+/* Menú hamburguesa */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 101;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 4px 0;
+}
+
+/* Icono de cierre */
+.close-icon {
+  display: none;
+  font-size: 30px;
+  color: white;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 102;
+  cursor: pointer;
+}
+
+.close-icon.show {
+  display: block;
+}
+
+/* Menú desplegado en pantallas pequeñas */
+.itemNavbar.open {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 50vh;
+  background-color: #0b503f;
+  padding: 20px;
+  z-index: 100;
+  transition: right 0.3s ease-in-out;
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+
+.itemNavbar li {
+  margin: 15px 0;
+}
+/* 
+.itemNavbar li:hover{
+  color: #daff99;
+  text-decoration: underline;
+} */
+
+/* Estilos responsivos */
+@media (max-width: 920px) {
   .itemNavbar {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container-items {
-    display: flex;
-    justify-content: space-between;
-    background-color: #052d23;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 1000;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    padding: 20px;
+    transition: right 0.3s;
+    z-index: 100;
   }
-  
-  .container1 {
-    text-decoration: none;
-    font-size: 1.2rem;
-    padding-right: 1.5rem;
-    color: white;
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .container1::after {
-    content: "";
-    position: absolute;
-    width: 85%;
-    height: 2px;
-    background-color: #e3ff9f;
-    bottom: 0;
-    left: 0;
-    transform: scaleX(0);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
-  }
-  
-  .container1:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-  
 
-
-  .buttons{
+  .hamburger {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 10;
   }
-  
-  .btn{
-    color: White ;
-    text-decoration: none;
-    margin-left: 1rem;
-    }
- 
+
+  .buttons  {
+    margin-right: 5rem;
+    z-index: 1;
+  }
+}
