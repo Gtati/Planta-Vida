@@ -6,6 +6,7 @@ import UserProfile from "../UserProfile/UserProfile";
 import { UserProvider } from "../../UserContext/UserContext";
 import { CartProvider } from "../../Layouts/CartContext/CartContext";
 import { BonoProvider } from "../../Layouts/BonoContext/BonoContext";
+import { TreeInformation } from "../TreeInformation/TreeInformation" 
 import "./App.css";
 
 import Login from "../LogIn/LogIn";
@@ -18,6 +19,7 @@ const AppRoutes = () => {
     { path: "/user-profile", element: <UserProfile /> },
     { path: "/LogIn", element: <Login /> },
     { path: "/SignUp", element: <SignUp /> },
+    { path: "/tree-information/:treeId", element: <TreeInformation /> },
     { path: "*", element: <NotFound /> },
   ]);
 
