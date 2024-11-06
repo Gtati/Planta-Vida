@@ -221,11 +221,18 @@ body {
 .itemNavbar li {
   margin: 15px 0;
 }
-/* 
-.itemNavbar li:hover{
-  color: #daff99;
-  text-decoration: underline;
-} */
+
+
+@media (max-width: 1279px){
+  .container-items{
+    width: 92.4%;
+  }
+  .container-items.scrolled {
+    width: 90%;
+    margin-left: 1rem;
+  }
+ 
+}
 
 /* Estilos responsivos */
 @media (max-width: 920px) {

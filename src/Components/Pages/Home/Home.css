@@ -76,7 +76,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    
     border-radius: 20px;
     background: #ffffff;
     width: 95%;
@@ -265,6 +264,11 @@
     .QuienesSomos{
         height: 50rem;
         width: 100%;
+    }
+}
+@media (max-width: 1279px){
+    .containerBonos{
+        height: 40rem;
     }
 }
 

@@ -38,6 +38,7 @@ const ShoppingCart = () => {
       if (result.isConfirmed) {
         setSelectedBono(null); // Elimina el bono en el BonoContext
         removeBono(); // Llama a removeBono para actualizar el estado del carrito
+        document.body.classList.remove('modal-open'); // Asegura que el scroll se desbloquee
         Swal.fire({
           title: "¡Eliminado!",
           text: "Tu bono ha sido eliminado.",
