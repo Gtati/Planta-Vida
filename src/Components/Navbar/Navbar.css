@@ -261,3 +261,32 @@ body {
     z-index: 1;
   }
 }
+
+@media (max-width :480px) {
+  .container-items{
+    width: 100vw;
+  }
+
+  .container-items.scrolled{
+    width: 95%;
+  }
+
+  .container-items.scrolled .logo{
+    height: 3rem;
+    padding: 0;
+  }
+
+  .container-items.scrolled .register{
+    margin-right: 10px;
+  } 
+  
+  .itemNavbar.open{
+    height: 16.5rem;
+  }
+
+  .container-items.scrolled .btn{
+    font-size: 1rem;
+  } 
+
+
+}

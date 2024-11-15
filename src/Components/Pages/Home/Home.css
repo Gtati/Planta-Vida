@@ -333,5 +333,41 @@
 }
 
 @media  (max-width: 480px){
+    .QuienesSomos{
+        width: 100vw;
+        height: 63rem;
+    }
 
+    .containerBonos{
+        height: 90rem;
+    }
+
+    .NuestrosPlanes{
+        height: 100rem;
+    }
+
+    .bonos1, .bonos2, .bonos3{
+        width: 26rem;
+        height: 20rem;
+    }
+
+    .formas-bono{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .containerPreguntas{
+        height: 87rem;
+        margin-top: 2rem;
+    }
+
+    .PreguntasFrecuentes{
+        height: 100%;
+    }
+
+    .infor{
+height: auto;
+padding-bottom: 1rem;
+    }
+    
 }
