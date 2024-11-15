@@ -40,3 +40,7 @@
 .finish-buy:hover{
     background-color: #1f5c3a;
 }
+
+.buttons-tree-buy{
+    gap: 1rem;
+}

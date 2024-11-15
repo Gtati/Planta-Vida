@@ -224,12 +224,9 @@ body {
 
 
 @media (max-width: 1279px){
-  .container-items{
-    width: 92.4%;
-  }
+
   .container-items.scrolled {
-    width: 90%;
-    margin-left: 1rem;
+    width: 95%;
   }
  
 }

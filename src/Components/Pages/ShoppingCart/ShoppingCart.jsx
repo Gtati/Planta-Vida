@@ -57,7 +57,7 @@ const ShoppingCart = () => {
         {selectedBono ? (
           <>
             <p>Bono seleccionado: {selectedBono}</p>
-            <button onClick={handleDeleteBono}>Eliminar Bono</button>
+            <button onClick={handleDeleteBono} className='delete-bono'>Eliminar Bono</button>
           </>
         ) : (
           <p>No has seleccionado ningún bono aún.</p>

@@ -6,3 +6,17 @@
     flex-wrap: wrap;
   }
   
+.delete-bono{
+  border: solid 1px #000000;
+  height: 2.5rem;
+  width: 7rem;
+  border-radius: 20px;
+  transition: background-color 500ms;
+  margin-top: 1rem;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.delete-bono:hover {
+  background-color: #e3ff9f;
+}

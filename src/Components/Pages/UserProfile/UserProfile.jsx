@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../../UserContext/UserContext';
-import "./UserProfile.css"; 
+import "./UserProfile.css";
 import { FaHome } from "react-icons/fa";
 import Swal from 'sweetalert2';
 import { LocationCard } from "../../Layouts/LocationCard/LocationCard";
@@ -14,7 +14,7 @@ import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
 const UserProfile = () => {
   const { userData } = useContext(UserContext);
   const [profileImage, setProfileImage] = useState("src/assets/user.png");
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -50,7 +50,7 @@ const UserProfile = () => {
         {/* Header con Logo e Icono para ir al Home */}
         <header className="user-profile-header">
           <img src={Logo} alt="Logo" className="logo" />
-          <Link to="/" className="home-icon"><FaHome/></Link>
+          <Link to="/" className="home-icon"><FaHome /></Link>
         </header>
 
         {/* Sección de Información del Usuario */}
@@ -79,15 +79,19 @@ const UserProfile = () => {
           {/* Contenedor de tarjetas de características y localización */}
           <div className="tree-info-cards">
             <div className="tree-card">
-              <h4>Características</h4>
-              <p>Los robles pueden alcanzar entre 20 y 40 metros de altura, con un tronco grueso que puede llegar a medir hasta 2 metros de diámetro.</p>
-              <p>Es un árbol de crecimiento lento, lo que contribuye a la dureza de su madera.</p>
-              <p>Produce bellotas, que son esenciales para la alimentación de muchos animales, como ardillas, jabalíes y aves.</p>
-              <p>Los robles son árboles muy longevos, algunos pueden vivir varios cientos de años. Existen ejemplares que han superado los 1,000 años.</p>
+                <h4>Características</h4>
+              <div className="tree-information">
+                <p>Los robles pueden alcanzar entre 20 y 40 metros de altura, con un tronco grueso que puede llegar a medir hasta 2 metros de diámetro.</p>
+                <p>Es un árbol de crecimiento lento, lo que contribuye a la dureza de su madera.</p>
+                <p>Produce bellotas, que son esenciales para la alimentación de muchos animales, como ardillas, jabalíes y aves.</p>
+                <p>Los robles son árboles muy longevos, algunos pueden vivir varios cientos de años. Existen ejemplares que han superado los 1,000 años.</p>
+              </div>
             </div>
             <div className="tree-card">
-              <h4>Localización</h4>
-              <LocationCard/>
+              <h4>Localización</h4>´
+              <div className="location-tree">
+                <LocationCard />
+              </div>
             </div>
           </div>
 

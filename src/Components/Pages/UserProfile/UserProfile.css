@@ -221,9 +221,24 @@ input[type="file"] {
 .cancel-button:hover {
   background-color: #e2fea5;
 }
+
  .tree-section h3{
   color: white;
  }
+
  .arbol{
   color: #e2fea5;
  }
+
+ @media (max-width: 1279px){
+  .location-tree{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+  }
+
+  .tree-information{
+    margin-top: 2.6rem;
+  }
+}
