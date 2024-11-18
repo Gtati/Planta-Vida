@@ -27,6 +27,7 @@
     justify-content: center;
     object-fit: cover ;
     flex-direction: column;
+    margin-top: 4rem;
 }
 
 .title{
@@ -80,6 +81,7 @@
     background: #ffffff;
     width: 95%;
     height: 80vh;
+    margin-top: 5rem;
 }
 
 .header-bonos {
