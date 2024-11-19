@@ -368,8 +368,45 @@
     }
 
     .infor{
-height: auto;
-padding-bottom: 1rem;
+    height: auto;
+    padding-bottom: 1rem;
     }
     
+}
+
+@media (max-width: 352px){
+    .info{
+        margin-top: 14px;
+    }
+
+    .containerPreguntas{
+        height: 90rem;
+    }
+
+    .containerBonos{
+        height: 92rem;
+    }
+
+    .bonos1, .bonos2, .bonos3{
+        width: 19rem;
+        height: 23rem;
+    }
+
+    .text-card{
+        display: flex;
+        text-align: center;
+    }
+
+    .header-bonos{
+        text-align: center;
+        margin: 1.5rem;
+    }
+
+    .NuestrosPlanes{
+        height: 100rem;
+    }
+
+    .cards-container{
+        gap: 1.5rem;
+    }
 }

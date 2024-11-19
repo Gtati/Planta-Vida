@@ -11,6 +11,7 @@ import "./App.css";
 
 import Login from "../LogIn/LogIn";
 import SignUp from "../SignUp/SignUp";
+import PostalCreator from "../Postal/Postal";
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -21,6 +22,7 @@ const AppRoutes = () => {
     { path: "/SignUp", element: <SignUp /> },
     { path: "/tree-information/:treeId", element: <TreeInformation /> },
     { path: "*", element: <NotFound /> },
+    {path: "/postal", element: <PostalCreator/>}
   ]);
 
   return routes;

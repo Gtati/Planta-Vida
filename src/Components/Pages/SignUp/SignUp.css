@@ -137,4 +137,16 @@
   .swal-text{
     font-family:"Roboto", sans-serif;;
   }
+
+  @media (max-width: 352px) {
+    .form-row{
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    
+    .btn-cancel, .btn-confirm{
+      width: 8rem;
+    }
+  }
   

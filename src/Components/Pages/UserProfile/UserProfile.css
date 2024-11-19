@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   font-family: 'Roboto', sans-serif;
-  background-image: url('C:\Users\SENA\Desktop\planta-vida\src\assets\imagenes\background-image.jpg');
+  background-image: url('../../../assets/imagenes/background-image.jpg');
   background-size: cover;
   background-position: center;
 }
@@ -240,5 +240,60 @@ input[type="file"] {
 
   .tree-information{
     margin-top: 2.6rem;
+  }
+}
+
+@media (max-width: 352px){
+  .image-upload label{
+    color: transparent;
+  }
+
+  Input[type="file"] {
+    color: transparent;
+    margin-left: 1.5rem;
+    max-width: 10rem;
+  }
+
+  .information-user{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center ;
+    margin: 0;
+    flex-direction: column;
+    gap: 1rem;
+    width: auto;
+  }
+
+  .user-section{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+  }
+
+  .tree-section h3{
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .tree-info-cards{
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tree-card{
+    width: 15rem;
+  }
+
+  .tree-card h4{
+    margin: 0%;
+  }
+
+  .cancel-button, .save-button{
+    width: 16rem;
+    padding: 0;
+    height: 3rem;
+    margin: 7px;
   }
 }

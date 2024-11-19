@@ -73,8 +73,8 @@ const Navbar = () => {
             )}
           </div>
         </Link>
-        <Link smooth to='/LogIn' className='btn'>Iniciar Sesión</Link>
-        <Link smooth to='/SignUp' className='btn register'>Registrarse</Link>
+        <Link smooth to='/LogIn' className='btn-sign'>Iniciar Sesión</Link>
+        <Link smooth to='/SignUp' className='register'>Registrarse</Link>
       </div>
     </nav>
   );

@@ -28,14 +28,10 @@ const UserProfile = () => {
   };
 
   const handleSave = () => {
-    Swal.fire({
-      icon: 'success',
-      title: 'Felicitaciones',
-      text: 'Tu cambio se guardó exitosamente',
-      confirmButtonText: 'Ok'
-    });
+    // Redirige a la ruta "/postal"
+    navigate('/postal');
   };
-
+  
 
   const handleCancel = () => {
     // Puedes agregar lógica para cerrar sesión aquí si es necesario
@@ -84,8 +80,7 @@ const UserProfile = () => {
                 <p>Los robles pueden alcanzar entre 20 y 40 metros de altura, con un tronco grueso que puede llegar a medir hasta 2 metros de diámetro.</p>
                 <p>Es un árbol de crecimiento lento, lo que contribuye a la dureza de su madera.</p>
                 <p>Produce bellotas, que son esenciales para la alimentación de muchos animales, como ardillas, jabalíes y aves.</p>
-                <p>Los robles son árboles muy longevos, algunos pueden vivir varios cientos de años. Existen ejemplares que han superado los 1,000 años.</p>
-              </div>
+               </div>
             </div>
             <div className="tree-card">
               <h4>Localización</h4>´
@@ -105,7 +100,7 @@ const UserProfile = () => {
 
         {/* Botones Guardar y Cancelar al final */}
         <div className="buttons-container">
-          <button className="save-button" onClick={handleSave}>Guardar</button>
+          <button className="save-button" onClick={handleSave}>Crear Postal</button>
           <button className="cancel-button" onClick={handleCancel}>Cerrar Sesión</button>
         </div>
       </div>
