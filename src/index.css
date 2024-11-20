@@ -2,3 +2,10 @@
     padding: 0;
     margin: 0;
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    overflow: auto; /* Permite scroll en caso de contenido excedente */
+  }
+  

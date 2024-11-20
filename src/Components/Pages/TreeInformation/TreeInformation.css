@@ -7,13 +7,25 @@
     margin-top: 8rem;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+
+}
+
+.g-information img{
+    width: 30rem;
+    height: 30rem;
+    border-radius: 2rem;
+    border: 2px solid ;
+    margin-left:7rem ;
+    
 }
 
 .info-tree{
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-right: 2rem;
+    justify-content: center;
 }
 
 .treedescription{
@@ -35,6 +47,7 @@
     width: 20vw;
     transition: background-color 0.3s;
     text-align: center;
+    margin: 1rem;
 }
 
 .finish-buy:hover{
@@ -42,5 +55,5 @@
 }
 
 .buttons-tree-buy{
-    gap: 1rem;
+    gap: 2rem;
 }

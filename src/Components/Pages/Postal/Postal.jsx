@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import "./Postal.css";
-import Swal from "sweetalert2";
+import LogoVerde from "../../../assets/imagenes/logoPlantaVidaVerde.webp"
+
+
 import { FaHome } from "react-icons/fa";
 import Logo from "../../../assets/imagenes/logoPlantaVidaBlanco.png";
 
@@ -31,28 +33,53 @@ const PostalCreator = () => {
 
   const generatePDF = () => {
     if (!formData.name || !formData.message || !formData.image) {
-      Swal.fire({
-        icon: "warning",
-        title: "Campos incompletos",
-        text: "Por favor, completa todos los campos antes de generar la postal.",
-        confirmButtonText: "Entendido",
-      });
+      alert("Por favor, completa todos los campos antes de generar la postal.");
       return;
     }
   
     const pdf = new jsPDF();
-    pdf.setFontSize(18);
-    pdf.text("Postal Personalizada", 20, 20);
-    pdf.setFontSize(12);
-    pdf.text(`Dedicatoria: ${formData.name}`, 20, 40);
-    pdf.text(`Mensaje: ${formData.message}`, 20, 50);
   
-    if (formData.image) {
-      pdf.addImage(formData.image, "JPEG", 20, 60, 50, 50);
-    }
+    // Fondo verde claro
+    pdf.setFillColor(204, 255, 204); // Verde claro
+    pdf.rect(0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight(), "F");
   
-    pdf.save("postal.pdf");
+    // Agregar el logo como encabezado
+    const logo = new Image();
+    logo.src = LogoVerde; // Asegúrate de que `Logo` esté importado
+    logo.onload = () => {
+      pdf.addImage(logo, "PNG", 85, 10, 40, 20); // Posición y tamaño del logo
+  
+      // Encabezado
+      pdf.setFontSize(22);
+      pdf.setTextColor(0, 102, 51); // Verde oscuro
+      pdf.text("Postal Planta Vida", 105, 40, { align: "center" });
+  
+      // Subtítulos
+      pdf.setFontSize(14);
+      pdf.text("Dedicatoria", 20, 60);
+      pdf.text("Mensaje", 20, 90);
+  
+      // Contenido
+      pdf.setFontSize(12);
+      pdf.setTextColor(34, 34, 34); // Gris oscuro
+      pdf.text(formData.name, 20, 70);
+      pdf.text(formData.message, 20, 100, { maxWidth: 170 });
+  
+      // Imagen cargada por el usuario
+      if (formData.image) {
+        pdf.addImage(formData.image, "JPEG", 70, 120, 70, 70); // Tamaño ajustado
+      }
+  
+      // Pie de página
+      pdf.setFontSize(10);
+      pdf.setTextColor(0, 51, 25); // Verde más oscuro
+      pdf.text("Gracias por ser parte de Planta Vida", 105, 280, { align: "center" });
+  
+      // Guardar el PDF
+      pdf.save("postal.pdf");
+    };
   };
+  
   
 
   return (
