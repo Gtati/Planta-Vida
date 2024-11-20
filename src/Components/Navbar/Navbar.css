@@ -329,3 +329,8 @@ body {
 
 }
 
+@media  (max-width: 768px){
+  .itemNavbar.open{
+    height: auto;
+  }
+}

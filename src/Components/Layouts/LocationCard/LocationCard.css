@@ -12,3 +12,11 @@
     justify-content: center;
     border-radius: 1rem;
 }
+
+@media (max-width: 768px) {
+    .location-card{
+        width: 16rem;
+        height: 16rem;
+    }
+    
+}

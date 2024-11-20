@@ -331,6 +331,40 @@
 
 }
 @media  (max-width: 768px){
+    .bonos1 , .bonos2, .bonos3{
+        height: 25rem;
+        width: 25rem;
+    }
+
+    .NuestrosPlanes{
+        height: 120rem;
+    }
+
+    .containerBonos{
+        height: 105rem;
+    }
+
+    .containerPreguntas{
+        height: 89rem;
+    }
+
+    .PreguntasFrecuentes{
+        height: 85rem;
+    }
+
+    .preguntas-frecuentes{
+        margin: 2rem;
+    }
+
+    .header-preguntas{
+        margin-bottom: 2rem;
+    }
+
+    .formas-bono{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
 
 }
 

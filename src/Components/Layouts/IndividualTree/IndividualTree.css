@@ -1,4 +1,4 @@
-.tree-card {
+.tree-card-bag {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
@@ -14,7 +14,7 @@
     margin-top: 2rem;
 }
 
-.tree-card:hover {
+.tree-card-bag:hover {
     transform: scale(1.05);
 }
 
