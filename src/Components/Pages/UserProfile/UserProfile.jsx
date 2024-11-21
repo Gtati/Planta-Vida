@@ -83,7 +83,7 @@ const UserProfile = () => {
                </div>
             </div>
             <div className="tree-card">
-              <h4>Localización</h4>´
+              <h4>Localización</h4>
               <div className="location-tree">
                 <LocationCard />
               </div>

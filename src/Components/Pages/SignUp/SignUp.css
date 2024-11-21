@@ -149,4 +149,10 @@
       width: 8rem;
     }
   }
+
+  @media (max-width: 768px){
+      .btn-cancel, .btn-confirm{
+        width: 11rem;
+      }
+  }
   

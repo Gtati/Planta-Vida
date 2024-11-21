@@ -15,7 +15,7 @@
     width: 30rem;
     height: 30rem;
     border-radius: 2rem;
-    border: 2px solid ;
+    border: 2px solid #4c9c70;
     margin-left:7rem ;
     
 }
@@ -56,4 +56,52 @@
 
 .buttons-tree-buy{
     gap: 2rem;
+}
+
+@media (max-width: 480px) {
+    .tree-container {
+      flex-direction: column; /* Cambiar a disposición vertical */
+      align-items: center;
+    }
+  
+    .g-information img {
+      height: 20rem;
+      width: 20rem;
+      margin: 0;
+      margin-left: 5rem;
+    }
+
+    .g-information{
+        flex-wrap: wrap;
+    }
+    .info-tree{
+        margin-top: 1rem;
+        display: flex;
+        text-align: center;
+    }
+
+    .tree-description{
+        margin-top: 10px;
+    }
+
+    .finish-buy, .cancel-button{
+        width: 11rem ;
+        margin-top: 1.2rem;
+    }
+  }
+
+@media (max-width: 352px){
+    .g-information img{
+        width: 15rem;
+        height: 15rem;
+        margin: 0;
+        margin-left: 4rem;
+    }
+
+    .info-tree{
+        margin-top: 1rem;
+        display: flex;
+        text-align: center;
+        margin-left: 2rem;
+    }
 }

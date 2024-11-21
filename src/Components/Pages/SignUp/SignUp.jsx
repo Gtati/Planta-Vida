@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import {Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../UserContext/UserContext';
 import Swal from "sweetalert2";
 import { FaHome } from "react-icons/fa";
-import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
+import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png';
 import './SignUp.css';
 
 const SignUp = () => {
@@ -52,13 +52,17 @@ const SignUp = () => {
   };
 
   return (
-    <div className="signup-container" >
+    <div className="signup-container">
       <div className="signup-box">
         <div className="signup-logo">
-          <img src={Logo} alt="Logo" />
-          <Link to="/" className="home-icon"><FaHome/></Link>
+          <div className="logo-container">
+            <img src={Logo} alt="Logo" />
+            <Link to="/" className="home-icon">
+              <FaHome />
+            </Link>
+          </div>
         </div>
-        <h2 className='title-sign'> Registro</h2>
+        <h2 className="title-sign">Registro</h2>
         <form className="signup-form" onSubmit={handleSubmit}>
           <div className="form-row">
             <div className="form-group">
@@ -68,7 +72,7 @@ const SignUp = () => {
                 name="fullName"
                 value={formData.fullName}
                 onChange={handleChange}
-                placeholder='Nombre Completo'
+                placeholder="Nombre Completo"
                 required
               />
             </div>
@@ -79,7 +83,7 @@ const SignUp = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder='Correo Electrónico'
+                placeholder="Correo Electrónico"
                 required
               />
             </div>
@@ -102,7 +106,7 @@ const SignUp = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder='Teléfono'
+                placeholder="Teléfono"
                 required
               />
             </div>
@@ -115,7 +119,7 @@ const SignUp = () => {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                placeholder='Contraseña'
+                placeholder="Contraseña"
                 required
               />
             </div>
@@ -126,7 +130,7 @@ const SignUp = () => {
                 name="confirmPassword"
                 value={formData.confirmPassword}
                 onChange={handleChange}
-                placeholder='Contraseña'
+                placeholder="Contraseña"
                 required
               />
             </div>
@@ -136,7 +140,10 @@ const SignUp = () => {
             <button type="submit" className="btn-confirm">Confirmar</button>
           </div>
           <div className="login-link">
-           ¿Ya tienes una cuenta? <NavLink to="/LogIn"> <span className='log'>Iniciar Sesión</span> </NavLink>
+            ¿Ya tienes una cuenta? 
+            <NavLink to="/LogIn">
+              <span className="log">Iniciar Sesión</span>
+            </NavLink>
           </div>
         </form>
       </div>

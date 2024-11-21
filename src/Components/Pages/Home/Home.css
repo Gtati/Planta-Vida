@@ -272,6 +272,10 @@
     .containerBonos{
         height: 80rem;
     }
+
+    .QuienesSomos{
+        height: auto;
+    }
 }
 
 @media (max-width: 920px){
@@ -393,7 +397,7 @@
     }
 
     .containerPreguntas{
-        height: 87rem;
+        height: 89rem;
         margin-top: 2rem;
     }
 
@@ -443,4 +447,5 @@
     .cards-container{
         gap: 1.5rem;
     }
+
 }

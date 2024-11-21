@@ -1,7 +1,7 @@
 .tree-card-bag {
-    border: 1px solid #ddd;
+    border: 1px solid #4c9c70;
     border-radius: 8px;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 8px #4c9c70;
     text-align: center;
     text-decoration: none;
     color: inherit;
@@ -37,5 +37,6 @@
     height: 19rem;
     object-fit: cover; 
     border-radius: 8px;
-    box-shadow: 0 2px 5px #0000001a;
+    box-shadow: 0 2px 5px #4c9c70;
 }
+

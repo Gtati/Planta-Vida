@@ -125,3 +125,9 @@
     }
   }
   
+  @media (max-width: 768px){
+      .btn-login{
+        width: 11rem;
+      }
+  }
+  
