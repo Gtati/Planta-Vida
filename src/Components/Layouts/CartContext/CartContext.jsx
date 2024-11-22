@@ -7,12 +7,12 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(0);
 
   const addToCart = () => {
-    setCartItems(cartItems + 1);
+    setCartItems(cartItems + 1); // Cambia a 1 porque solo puede haber un bono seleccionado
   };
 
   const removeBono = () => {
     setSelectedBono(null);
-    setCartItems(0);
+    setCartItems(0); // Restablece el carrito a 0
   };
 
   return (

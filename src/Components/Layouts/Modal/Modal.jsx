@@ -4,6 +4,7 @@ import { BonoContext } from '../../Layouts/BonoContext/BonoContext'; // Importam
 import { useNavigate } from 'react-router-dom'; // Importamos el hook de navegación
 import './Modal.css';
 import { FaXmark } from "react-icons/fa6";
+import { LuTrees } from "react-icons/lu";
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
   const [isVisible, setIsVisible] = useState(isOpen);
@@ -39,11 +40,22 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
 
   // Manejar cuando el usuario hace clic en "Añadir Al Carrito"
   const handleAddToCart = () => {
-    setSelectedBono(title); // Establece el bono seleccionado en el contexto de Bono
-    addToCart(); // Añadir el bono al carrito usando el contexto del carrito
-    navigate('/shopping-cart'); // Redirige al carrito de compras
+    setSelectedBono(
+      <div className="bono">
+        <LuTrees className="circle-icon" />
+        <hr className="bono-line" />
+
+        <h2 className="title-card">{title}</h2>
+        <p className="text-card">{children}</p>
+      </div>
+    ); // Guarda todo el contenido del bono con estilos
+    addToCart();
+    navigate('/shopping-cart');
   };
 
+  
+  
+  
   return isVisible ? (
     <div className={`modal-overlay ${isOpen && !closing ? 'show' : ''}`}>
       <div className={`modal-popup ${closing ? 'fade-out' : ''}`}>

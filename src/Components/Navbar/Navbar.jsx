@@ -30,18 +30,6 @@ const Navbar = () => {
         </Link>
       </ul>
 
-      {/* Menú Hamburguesa */}
-      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
-        <span className="line"></span>
-        <span className="line"></span>
-        <span className="line"></span>
-      </div>
-
-      {/* Icono de cierre (X) cuando el menú está abierto */}
-      <div className={`close-icon ${isOpen ? 'show' : ''}`} onClick={() => setIsOpen(false)}>
-        &#10005;
-      </div>
-
       {/* Menú lateral */}
       <ul className={`itemNavbar ${isOpen ? 'open' : ''}`}>
         <li onClick={() => setIsOpen(false)}>
@@ -58,7 +46,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      {/* Botones de carrito, login y registro */}
+      {/* Botones del carrito */}
       <div className='buttons'>
         <Link smooth to='/shopping-cart' className='btn'>
           <div
@@ -69,7 +57,7 @@ const Navbar = () => {
             <HiShoppingBag className='shopi-bag' />
             {cartItems > 0 && <div className="cart-indicator">{cartItems}</div>} {/* Muestra el contador */}
             {cartItems === 0 && isHovered && (
-              <div className="cart-tooltip">El carrito está vacío</div> // Tooltip para carrito vacío
+              <div className="cart-tooltip">El carrito está vacío</div>
             )}
           </div>
         </Link>

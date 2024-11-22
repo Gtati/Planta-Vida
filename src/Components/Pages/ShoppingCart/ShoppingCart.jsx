@@ -50,19 +50,36 @@ const ShoppingCart = () => {
     });
   };
 
+  const handleFinalizePurchase = () => {
+    Swal.fire({
+      title: "¡Compra finalizada!",
+      text: "Gracias por tu compra. Pronto recibirás un correo de confirmación.",
+      icon: "success",
+      confirmButtonText: "Aceptar"
+    }).then(() => {
+      removeBono(); // Limpiar el carrito
+      navigate('/'); // Redirigir a la página principal o donde prefieras
+    });
+  };
+
+
   return (
     <>
       <Navbar />
+      <div className='contentShopping'>
       <div className="shopping-cart-content">
         {selectedBono ? (
           <>
             <p>Bono seleccionado: {selectedBono}</p>
+            <button onClick={handleFinalizePurchase} className='purchase-bono'>Finalizar compra</button>
+
             <button onClick={handleDeleteBono} className='delete-bono'>Eliminar Bono</button>
+
           </>
         ) : (
           <p>No has seleccionado ningún bono aún.</p>
         )}
-        <TreeCards/>
+      </div>
       </div>
     </>
   );
