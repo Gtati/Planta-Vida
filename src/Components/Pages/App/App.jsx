@@ -7,6 +7,7 @@ import { UserProvider } from "../../UserContext/UserContext";
 import { CartProvider } from "../../Layouts/CartContext/CartContext";
 import { BonoProvider } from "../../Layouts/BonoContext/BonoContext";
 import { TreeInformation } from "../TreeInformation/TreeInformation" 
+import { UserProviderBonos } from "../../Layouts/UserContextBonos/UserContextBonos";
 import "./App.css";
 
 import Login from "../LogIn/LogIn";
@@ -31,6 +32,7 @@ const AppRoutes = () => {
 const App = () => {
   return (
     <BrowserRouter>
+
       <BonoProvider>
         <CartProvider>
           <UserProvider>
