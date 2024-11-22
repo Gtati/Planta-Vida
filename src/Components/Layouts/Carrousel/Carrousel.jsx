@@ -7,6 +7,8 @@ import imagen3 from '../../../assets/imagenes/img3.jpg';
 import imagen4 from '../../../assets/imagenes/img4.jpg';
 import imagen5 from '../../../assets/imagenes/img5.avif';
 
+
+
 const Carrusel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
