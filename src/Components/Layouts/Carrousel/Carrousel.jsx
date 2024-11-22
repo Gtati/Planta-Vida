@@ -8,6 +8,8 @@ import imagen4 from '../../../assets/imagenes/img4.jpg';
 import imagen5 from '../../../assets/imagenes/img5.avif';
 import { FaPlus } from 'react-icons/fa';
 
+
+
 const Carrusel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [additionalImages, setAdditionalImages] = useState([]);

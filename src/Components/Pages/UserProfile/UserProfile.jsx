@@ -34,11 +34,25 @@ const UserProfile = () => {
   
 
   const handleCancel = () => {
-    // Puedes agregar lógica para cerrar sesión aquí si es necesario
-
-    // Redirige a la página principal
-    navigate('/'); // Cambia la ruta si la página principal no está en '/'
+    // Elimina la información del usuario en localStorage
+    localStorage.removeItem('user');  // Si tu aplicación guarda el usuario en el localStorage
+  
+    // Opcional: Mostrar alerta de confirmación
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: 'Tu sesión será cerrada.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, cerrar sesión',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Redirige a la página principal
+        navigate('/');  // Cambia '/' por la ruta que prefieras
+      }
+    });
   };
+  
 
   return (
     <div className="user-profile-page">

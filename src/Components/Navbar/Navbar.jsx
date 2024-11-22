@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {  useNavigate } from 'react-router-dom';  // Agregado useNavigate para redirección
 import logoPlantaVida from '../../assets/imagenes/logoPlantaVidaBlanco.png';
 import { HashLink as Link } from 'react-router-hash-link';
 import { HiShoppingBag, HiUserCircle } from "react-icons/hi2";
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { cartItems } = useCart();
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();  // hook de redirección
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 0);
@@ -47,6 +49,22 @@ const Navbar = () => {
     });
   };
 
+  const handleProfileClick = () => {
+    // Verificar si el usuario es normal (no admin)
+    if (user && user.role !== 'admin') {
+      // Redirigir al perfil del usuario si no es admin
+      navigate('/user-profile');
+    } else {
+      // Si es admin, no hacer nada o mostrar un mensaje
+      Swal.fire({
+        title: 'Acción no permitida',
+        text: 'Solo los usuarios normales pueden acceder al perfil.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+      });
+    }
+  };
+
   return (
     <nav className={`container-items ${scrolled ? 'scrolled' : ''}`}>
       <ul className='logo-list'>
@@ -78,18 +96,11 @@ const Navbar = () => {
 
         {user ? (
           <>
-            <div className="profile-icon">
+            <div className="profile-icon" onClick={handleProfileClick}>
               <HiUserCircle size={30} />
               <span>{user.username}</span>
             </div>
-            {user.role === 'admin' && (
-              <button
-                onClick={() => alert('Habilitando edición del Home...')}
-                className="edit-home-button"
-              >
-                Editar Home
-              </button>
-            )}
+
             <button onClick={handleLogout} className="logout-button">Cerrar Sesión</button>
           </>
         ) : (
