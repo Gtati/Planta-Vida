@@ -84,15 +84,38 @@
   border: none;
   padding: 2px;
   border-radius: 100%;
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
   position: absolute;
   bottom: 10px; /* Ajusta la posición del botón al fondo del carrusel */
-  left: 50%;
+  left: 49%;
   transform: translateX(-50%); /* Centra el botón horizontalmente */
   z-index: 10;
   margin-bottom: 1.5rem;
 }
+
+.remove-button {
+  background-color: #f44336; /* Color rojo para indicar acción de eliminar */
+  color: white;
+  border: none;
+  padding: 2px;
+  border-radius: 100%;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px; /* Ajusta la posición del botón al fondo del carrusel */
+  left: 53%; /* Posición ligeramente a la derecha del botón de agregar */
+  transform: translateX(-50%); /* Centra el botón horizontalmente según su posición */
+  z-index: 10;
+  margin-bottom: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.remove-button:hover {
+  background-color: #d32f2f; /* Un rojo más oscuro para hover */
+  transform: translateX(-50%) scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+
 
 .edit-button:hover {
   background-color: #45a049;
