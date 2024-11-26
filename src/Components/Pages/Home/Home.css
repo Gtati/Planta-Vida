@@ -3,7 +3,6 @@
 *{
     margin: 0;
     padding: 0;
-   
 }
 
 .QuienesSomos{
@@ -16,7 +15,6 @@
     width: 100%;
     text-align: center;
     margin-top: 3rem;
-    
 }
 
 .quienes-somos{
@@ -116,18 +114,6 @@
     font-family: "Nunito", sans-serif;
 }
 
-.bonos1 {
-    background-color: #daff99;
-}
-
-.bonos2 {
-    background-color: #dbd7ff;
-}
-
-.bonos3 {
-    background-color: #daeafd;
-}
-
 .text-card {
     margin: 0.5rem;
     font-size: 1.1rem;
@@ -135,15 +121,12 @@
     font-weight: 500;
     display: flex;
     text-align: start;
-    margin-left: 30px
+    margin-left: 30px;
 }
 
 .text-card > p{
-
     font-size: 17px;
-    
 }
-
 
 .title-card {
     margin-top: 13px;
@@ -188,6 +171,45 @@
     font-weight: 700;
 }
 
+.add-bono-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.modal-bono-edit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 40%;
+    text-align: center;
+}
+
+.modal-content input,
+.modal-content textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
 /* Seccion Preguntas frecuentes */
 
 .PreguntasFrecuentes{
@@ -198,7 +220,6 @@
     background-color: #052d23 ;
     height: 100vh;
     width: 100%;
-    
 }
 
 .preguntas-frecuentes{
@@ -222,7 +243,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-
 }
 
 .infor{
@@ -254,15 +274,17 @@
     font-size: 2rem;
     padding-top: 2rem;
 }
+
 .formas-bono{
     display: flex;
 }
+
+/* Media Queries */
 
 @media screen and (max-width: 1400px){
     .containerBonos{
         width: 95%;
         height: 55rem;
-       
     }
 
     .bonos1, .bonos2, .bonos3 {
@@ -275,6 +297,7 @@
         width: 100%;
     }
 }
+
 @media (max-width: 1279px){
     .containerBonos{
         height: 80rem;
@@ -307,40 +330,42 @@
         margin-left: 0;
         justify-content: center;
         align-items: center;
+    }
 
+    .text-card{
+        font-size: 1rem;
+        margin: 0.2rem;
+    }
+
+    .title-bonos{
+        margin-top: 1rem;
+        color: #0c4537;
+        font-size: 3.2rem;
+        font-family: "Nunito", sans-serif;
+    }
+
+    .button-card {
+        width: 60%;
+        height: auto;
+        padding: .6rem;
+        margin-top:1rem ;
+    }
+
+    .bonos1{
+        padding-top: 2rem;
+    }
+
+    .preguntas-frecuentes{
+        margin: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    .header-preguntas{
+        font-size: 2rem;
+        padding-top: 8rem;
+    }
 }
 
-.text-card{
-    font-size: 1rem;
-    margin: 0.2rem;
-}
-
-.title-bonos{
-    margin-top: 1rem;
-    color: #0c4537;
-    font-size: 3.2rem;
-    font-family: "Nunito", sans-serif;
-}
-
-.button-card {
-    width: 60%;
-    height: auto;
-    padding: .6rem;
-    margin-top:1rem ;
-}
-.bonos1{
-    padding-top: 2rem;
-}
-.preguntas-frecuentes{
-    margin: 2rem;
-    margin-bottom: 5rem;
-}
-.header-preguntas{
-    font-size: 2rem;
-    padding-top: 8rem;
-}
-
-}
 @media  (max-width: 768px){
     .bonos1 , .bonos2, .bonos3{
         height: 25rem;
@@ -376,7 +401,6 @@
         flex-wrap: wrap;
         flex-direction: column;
     }
-
 }
 
 @media  (max-width: 480px){
@@ -413,10 +437,9 @@
     }
 
     .infor{
-    height: auto;
-    padding-bottom: 1rem;
+        height: auto;
+        padding-bottom: 1rem;
     }
-    
 }
 
 @media (max-width: 352px){
@@ -454,5 +477,4 @@
     .cards-container{
         gap: 1.5rem;
     }
-
 }
