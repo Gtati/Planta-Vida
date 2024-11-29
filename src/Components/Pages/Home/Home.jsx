@@ -187,7 +187,7 @@ function Home() {
 
           {isAdmin && (
         <div className="admin-controls">
-          {/* Botón para agregar imágenes */}
+          {/* Botón para agregar bonos */}
           <button className="add-bono-button" onClick={abrirModal}>Agregar Bono</button>
 
 

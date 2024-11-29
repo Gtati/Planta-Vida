@@ -44,10 +44,13 @@ const Navbar = () => {
           title: 'Sesión cerrada',
           text: 'Tu sesión ha sido cerrada correctamente.',
           confirmButtonText: 'Ok',
+        }).then(() => {
+          window.location.reload(); // Recarga la página después del cierre de sesión
         });
       }
     });
   };
+  
 
   const handleProfileClick = () => {
     // Verificar si el usuario es normal (no admin)
