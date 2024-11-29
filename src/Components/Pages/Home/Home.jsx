@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from "../../Navbar/Navbar";
 import Carousel from "../../Layouts/Carrousel/Carrousel";
 import { Card } from "../../Layouts/Card/Card";
@@ -15,6 +15,8 @@ import { GoGift } from "react-icons/go";
 import './Home.css';
 
 function Home() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
   // Bonos predeterminados, estos no cambiarán ni podrán eliminarse
   const [bonos, setBonos] = useState([
     {
@@ -70,6 +72,9 @@ function Home() {
     }
   ]);
 
+  
+ 
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [nuevoBono, setNuevoBono] = useState({
     title: '',
@@ -79,6 +84,19 @@ function Home() {
   });
 
   const [mensajeError, setMensajeError] = useState('');
+
+  useEffect(() => {
+    // Comprobamos si hay un usuario en el localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      if (user?.role === 'admin') {
+        setIsAdmin(true); // Si el usuario es admin, mostramos los botones de admin
+      }
+    }
+    
+    
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -165,11 +183,18 @@ function Home() {
             ))}
           </div>
 
-          <div className="add-bono-container">
-            <button className="add-bono-button" onClick={abrirModal}>Agregar Bono</button>
-          </div>
+      
 
-          {mensajeError && <p className="error-message">{mensajeError}</p>}
+          {isAdmin && (
+        <div className="admin-controls">
+          {/* Botón para agregar imágenes */}
+          <button className="add-bono-button" onClick={abrirModal}>Agregar Bono</button>
+
+
+  
+        </div>
+      )}
+
         </div>
       </section>
 
