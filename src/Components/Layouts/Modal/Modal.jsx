@@ -7,6 +7,7 @@ import { FaXmark } from "react-icons/fa6";
 import { LuTrees } from "react-icons/lu";
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
+  const [isUser, setIsUser] = useState(false);
   const [isVisible, setIsVisible] = useState(isOpen);
   const [closing, setClosing] = useState(false);
   const { addToCart } = useCart(); // Usamos el contexto del carrito
@@ -27,6 +28,20 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
       }, 300);
     }
   }, [isOpen, isVisible, onClose]);
+
+
+  useEffect(() => {
+    // Comprobamos si hay un usuario en el localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      if (user?.role === 'user') {
+        setIsUser(true); // Si el usuario es usuario registrado, mostramos los botones de añadir al carrito
+      }
+    }
+    
+    
+  }, []);
 
   const handleClose = () => {
     setClosing(true);
@@ -57,15 +72,21 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
   
   
   return isVisible ? (
+    
     <div className={`modal-overlay ${isOpen && !closing ? 'show' : ''}`}>
       <div className={`modal-popup ${closing ? 'fade-out' : ''}`}>
         <h2>{title}</h2>
         <FaXmark onClick={handleClose} className="close-mark" />
+        
         <div className="modal-body">{children}</div>
+        {isUser && (
         <button className="carrito-button" onClick={handleAddToCart}>
           Añadir Al Carrito
         </button>
+         
+)}
       </div>
     </div>
   ) : null;
 };
+
