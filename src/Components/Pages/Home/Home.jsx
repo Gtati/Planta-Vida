@@ -115,6 +115,7 @@ function Home() {
         content: nuevoBono.content,
         backgroundColor: nuevoBono.backgroundColor,
         buttonText: "Ver Más",
+        className: "nuevo-bono",
         modalContent: (
           <p>
             ◆ Siembra de un árbol nativo <br /> <br />

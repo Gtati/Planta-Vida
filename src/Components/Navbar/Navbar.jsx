@@ -11,6 +11,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { cartItems } = useCart();
   const [user, setUser] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();  // hook de redirección
 
   useEffect(() => {
@@ -76,17 +77,27 @@ const Navbar = () => {
         </Link>
       </ul>
 
-      <ul className='itemNavbar'>
-        <li>
+      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <span className="line"></span>
+        <span className="line"></span>
+        <span className="line"></span>
+      </div>
+      {/* Icono de cierre (X) cuando el menú está abierto */}
+      <div className={`close-icon ${isOpen ? 'show' : ''}`} onClick={() => setIsOpen(false)}>
+        &#10005;
+      </div>
+      {/* Menú lateral */}
+      <ul className={`itemNavbar ${isOpen ? 'open' : ''}`}>
+        <li onClick={() => setIsOpen(false)}>
           <Link smooth to='/#quienes-somos' className='container1'>Quienes Somos</Link>
         </li>
-        <li>
+        <li onClick={() => setIsOpen(false)}>
           <Link smooth to='/#nuestros-planes' className='container1'>Nuestros Planes</Link>
         </li>
-        <li>
+        <li onClick={() => setIsOpen(false)}>
           <Link smooth to='/#preguntas-frecuentes' className='container1'>Formas de Adquirir Bono</Link>
         </li>
-        <li>
+        <li onClick={() => setIsOpen(false)}>
           <Link smooth to='/#contacto' className='container1'>Contacto</Link>
         </li>
       </ul>
