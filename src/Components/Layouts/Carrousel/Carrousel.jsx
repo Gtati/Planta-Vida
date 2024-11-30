@@ -21,20 +21,18 @@ const Carrusel = () => {
   const defaultImages = [imagen1, imagen2, imagen3, imagen4, imagen5];
 
   useEffect(() => {
-    // Comprobamos si hay un usuario en el localStorage
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const user = JSON.parse(storedUser);
       if (user?.role === 'admin') {
-        setIsAdmin(true); // Si el usuario es admin, mostramos los botones de admin
+        setIsAdmin(true);
       }
     }
-    
+
     const savedImages = JSON.parse(localStorage.getItem('additionalImages')) || [];
     setAdditionalImages(savedImages);
   }, []);
 
-  // Función de logout
   const handleLogout = () => {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -45,8 +43,8 @@ const Carrusel = () => {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        localStorage.removeItem('user'); // Eliminamos al usuario del localStorage
-        setIsAdmin(false); // Ocultamos los botones de admin
+        localStorage.removeItem('user');
+        setIsAdmin(false);
         Swal.fire({
           icon: 'success',
           title: 'Sesión cerrada',
@@ -71,23 +69,28 @@ const Carrusel = () => {
 
   const handleAddImage = () => {
     if (newImage) {
-      Swal.fire({
-        title: '¿Estás seguro?',
-        text: '¿Quieres agregar esta imagen al carrusel?',
-        icon: 'question',
-        showCancelButton: true,
-        confirmButtonText: 'Sí, agregar',
-        cancelButtonText: 'Cancelar',
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const updatedImages = [...additionalImages, newImage];
-          setAdditionalImages(updatedImages);
-          localStorage.setItem('additionalImages', JSON.stringify(updatedImages));
-          setNewImage(null);
-          setShowAddModal(false);
-          Swal.fire('Imagen agregada', '', 'success');
-        }
-      });
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const base64Image = e.target.result;
+        Swal.fire({
+          title: '¿Estás seguro?',
+          text: '¿Quieres agregar esta imagen al carrusel?',
+          icon: 'question',
+          showCancelButton: true,
+          confirmButtonText: 'Sí, agregar',
+          cancelButtonText: 'Cancelar',
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const updatedImages = [...additionalImages, base64Image];
+            setAdditionalImages(updatedImages);
+            localStorage.setItem('additionalImages', JSON.stringify(updatedImages));
+            setNewImage(null);
+            setShowAddModal(false);
+            Swal.fire('Imagen agregada', '', 'success');
+          }
+        });
+      };
+      reader.readAsDataURL(newImage);
     }
   };
 
@@ -98,6 +101,16 @@ const Carrusel = () => {
       setShowAddModal(false);
       setShowRemoveModal(true);
     }
+  };
+
+  const handleSelectImageToRemove = (index) => {
+    setImageToRemove(index);
+    Swal.fire({
+      icon: 'success',
+      title: 'Imagen seleccionada correctamente',
+      text: `Has seleccionado la imagen ${index + 1} para eliminar.`,
+      confirmButtonText: 'Ok',
+    });
   };
 
   const handleRemoveImage = () => {
@@ -153,19 +166,16 @@ const Carrusel = () => {
 
       {isAdmin && (
         <div className="admin-controls">
-          {/* Botón para agregar imágenes */}
           <button onClick={() => setShowAddModal(true)} className="edit-button">
             <FaPlus className="add-icon" />
           </button>
 
-          {/* Botón para abrir el modal de eliminación */}
           <button onClick={handleOpenRemoveModal} className="remove-button">
             <FaTrashAlt className="remove-icon" />
           </button>
         </div>
       )}
 
-      {/* Modal para agregar imágenes */}
       {showAddModal && (
         <div className="modal-carrusel">
           <div className="modal-carrusel-content">
@@ -173,7 +183,7 @@ const Carrusel = () => {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setNewImage(URL.createObjectURL(e.target.files[0]))}
+              onChange={(e) => setNewImage(e.target.files[0])}
             />
             <button onClick={handleAddImage}>Agregar Imagen</button>
             <button onClick={() => setShowAddModal(false)} className="close-modal-carrusel">
@@ -183,7 +193,6 @@ const Carrusel = () => {
         </div>
       )}
 
-      {/* Modal para eliminar imágenes */}
       {showRemoveModal && (
         <div className="modal-carrusel">
           <div className="modal-carrusel-content">
@@ -195,7 +204,7 @@ const Carrusel = () => {
                 {additionalImages.map((image, index) => (
                   <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
                     <img src={image} alt={`Adicional ${index + 1}`} width={50} style={{ marginRight: '10px' }} />
-                    <button onClick={() => setImageToRemove(index)}>Seleccionar</button>
+                    <button onClick={() => handleSelectImageToRemove(index)}>Seleccionar</button>
                   </li>
                 ))}
               </ul>

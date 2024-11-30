@@ -16,138 +16,47 @@ import './Home.css';
 
 function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
-
-  // Bonos predeterminados, estos no cambiarán ni podrán eliminarse
   const [bonos, setBonos] = useState([
     {
       id: 1,
       title: "Bono Celebración",
       content: "Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas, graduaciones u otros momentos especiales.",
-      backgroundColor: "#daff99", // Color predeterminado
-      buttonText: "Ver más",
-      modalContent: (
-        <p>
-          ◆ Siembra de un árbol nativo <br /> <br />
-          ◆ Mantenimiento por 18 meses <br /> <br />
-          ◆ Reporte de seguimiento del árbol por medio de la página web: <span className="resalto"> www.plantavida.camaraarmenia.org.co. </span><br /> <br />
-          ◆ Placa con numeración del árbol <br /> <br />
-          ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional) <br /> <br />
-          ◆ Valor: <span className="resalto"> $100.000 </span>
-        </p>
-      )
+      backgroundColor: "#daff99"
     },
     {
       id: 2,
       title: "Bono Exequial",
       content: "Este bono está diseñado para rendir homenaje a una persona fallecida, ofreciendo una manera significativa de honrar su memoria.",
-      backgroundColor: "#dbd7ff", // Color predeterminado
-      buttonText: "Ver Más",
-      modalContent: (
-        <p>
-          ◆ Siembra de un árbol nativo <br /> <br />
-          ◆ Mantenimiento por 18 meses <br /> <br />
-          ◆ Reporte de seguimiento del árbol por medio de la página web: <span className="resalto"> www.plantavida.camaraarmenia.org.co. </span><br /> <br />
-          ◆ Placa con numeración del árbol <br /> <br />
-          ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional) <br /> <br />
-          ◆ Valor: <span className="resalto"> $100.000 </span>
-        </p>
-      )
+      backgroundColor: "#dbd7ff"
     },
     {
       id: 3,
       title: "Bono Ambiental",
       content: "Con este bono apoya la conservación y recuperación de los bosques de las zonas urbanas y rurales del departamento del Quindío.",
-      backgroundColor: "#daeafd", // Color predeterminado
-      buttonText: "Ver Más",
-      modalContent: (
-        <p>
-          ◆ Siembra de un árbol nativo <br /> <br />
-          ◆ Mantenimiento por 18 meses <br /> <br />
-          ◆ Reporte de seguimiento del árbol por medio de la página web: <span className="resalto"> www.plantavida.camaraarmenia.org.co. </span><br /> <br />
-          ◆ Placa con numeración del árbol <br /> <br />
-          ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional) <br /> <br />
-          ◆ Valor: <span className="resalto"> $100.000 </span>
-        </p>
-      )
+      backgroundColor: "#daeafd"
     }
   ]);
 
-  
- 
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [nuevoBono, setNuevoBono] = useState({
-    title: '',
-    content: '',
-    modalContent: '',
-    backgroundColor: '#ffffff' // Color inicial de los nuevos bonos
-  });
-
-  const [mensajeError, setMensajeError] = useState('');
+  const [selectedBono, setSelectedBono] = useState(null);
 
   useEffect(() => {
-    // Comprobamos si hay un usuario en el localStorage
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       const user = JSON.parse(storedUser);
       if (user?.role === 'admin') {
-        setIsAdmin(true); // Si el usuario es admin, mostramos los botones de admin
+        setIsAdmin(true);
       }
     }
-    
-    
   }, []);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNuevoBono(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
+  const handleEditBono = (id) => {
+    const bonoToEdit = bonos.find(bono => bono.id === id);
+    setSelectedBono(bonoToEdit);
   };
 
-  const agregarBono = () => {
-    if (nuevoBono.title && nuevoBono.content) {
-      const bonoId = bonos.length + 1;
-      const nuevoBonoObjeto = {
-        id: bonoId,
-        title: nuevoBono.title,
-        content: nuevoBono.content,
-        backgroundColor: nuevoBono.backgroundColor,
-        buttonText: "Ver Más",
-        className: "nuevo-bono",
-        modalContent: (
-          <p>
-            ◆ Siembra de un árbol nativo <br /> <br />
-            ◆ Mantenimiento por 18 meses <br /> <br />
-            ◆ Reporte de seguimiento del árbol por medio de la página web: <span className="resalto"> www.plantavida.camaraarmenia.org.co. </span><br /> <br />
-            ◆ Placa con numeración del árbol <br /> <br />
-            ◆ Envío de bono físico a la persona a quien está dirigido (territorio nacional) <br /> <br />
-            ◆ Valor: <span className="resalto"> $100.000 </span>
-          </p>
-        )
-      };
-      setBonos([...bonos, nuevoBonoObjeto]);
-      setNuevoBono({ title: '', content: '', modalContent: '', backgroundColor: '#ffffff' });
-      setIsModalOpen(false); 
-    }
-  };
-
-  const eliminarBono = (id) => {
-    if (bonos.length > 3) { // Solo se puede eliminar bonos nuevos (id > 3)
-      setBonos(bonos.filter(bono => bono.id !== id));
-      setMensajeError(''); // Borrar mensaje de error si se elimina con éxito
-    } else {
-      setMensajeError('Debe crear más bonos primero para poder eliminar.');
-    }
-  };
-
-  const abrirModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const cerrarModal = () => {
-    setIsModalOpen(false);
+  const handleSaveBono = () => {
+    setBonos(bonos.map(bono => (bono.id === selectedBono.id ? selectedBono : bono)));
+    setSelectedBono(null);
   };
 
   return (
@@ -174,60 +83,35 @@ function Home() {
                 <Card
                   title={bono.title}
                   content={bono.content}
-                  buttonText={bono.buttonText}
-                  modalContent={bono.modalContent}
+                  buttonText="Ver Más"
                 />
-                {bono.id > 3 && (
-                  <button onClick={() => eliminarBono(bono.id)} className="eliminar-bono-button">Eliminar</button>
+                {isAdmin && (
+                  <button onClick={() => handleEditBono(bono.id)} className="edit-bono-button">Editar</button>
                 )}
               </div>
             ))}
           </div>
-
-      
-
-          {isAdmin && (
-        <div className="admin-controls">
-          {/* Botón para agregar bonos */}
-          <button className="add-bono-button" onClick={abrirModal}>Agregar Bono</button>
-
-
-  
-        </div>
-      )}
-
         </div>
       </section>
 
-      {isModalOpen && (
+      {selectedBono && (
         <div className="modal-bono-edit">
           <div className="modal-content">
             <h2>Editar Bono</h2>
             <label>Título del Bono:</label>
             <input
               type="text"
-              name="title"
-              placeholder="Título del Bono"
-              value={nuevoBono.title}
-              onChange={handleInputChange}
+              value={selectedBono.title}
+              onChange={(e) => setSelectedBono({ ...selectedBono, title: e.target.value })}
             />
             <label>Descripción del Bono:</label>
             <textarea
-              name="content"
-              placeholder="Descripción del Bono"
-              value={nuevoBono.content}
-              onChange={handleInputChange}
-            />
-            <label>Color de Fondo:</label>
-            <input
-              type="color"
-              name="backgroundColor"
-              value={nuevoBono.backgroundColor}
-              onChange={handleInputChange}
+              value={selectedBono.content}
+              onChange={(e) => setSelectedBono({ ...selectedBono, content: e.target.value })}
             />
             <div className="modal-buttons">
-              <button onClick={agregarBono}>Agregar Bono</button>
-              <button onClick={cerrarModal}>Cancelar</button>
+              <button onClick={handleSaveBono}>Guardar</button>
+              <button onClick={() => setSelectedBono(null)}>Cancelar</button>
             </div>
           </div>
         </div>
