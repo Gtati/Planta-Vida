@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {  useNavigate } from 'react-router-dom';  // Agregado useNavigate para redirección
+import { useNavigate } from 'react-router-dom';  
 import logoPlantaVida from '../../assets/imagenes/logoPlantaVidaBlanco.png';
 import { HashLink as Link } from 'react-router-hash-link';
 import { HiShoppingBag, HiUserCircle } from "react-icons/hi2";
@@ -11,8 +11,9 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { cartItems } = useCart();
   const [user, setUser] = useState(null);
+  const [profileImage, setProfileImage] = useState(null); // Estado para la imagen de perfil
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();  // hook de redirección
+  const navigate = useNavigate();  
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 0);
@@ -20,7 +21,13 @@ const Navbar = () => {
 
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      const parsedUser = JSON.parse(storedUser);
+      setUser(parsedUser);
+      // Recuperar la imagen de perfil desde localStorage si existe
+      const storedImage = localStorage.getItem('profileImage');
+      if (storedImage) {
+        setProfileImage(storedImage);
+      }
     }
 
     return () => {
@@ -52,14 +59,10 @@ const Navbar = () => {
     });
   };
   
-
   const handleProfileClick = () => {
-    // Verificar si el usuario es normal (no admin)
     if (user && user.role !== 'admin') {
-      // Redirigir al perfil del usuario si no es admin
       navigate('/user-profile');
     } else {
-      // Si es admin, no hacer nada o mostrar un mensaje
       Swal.fire({
         title: 'Acción no permitida',
         text: 'Solo los usuarios normales pueden acceder al perfil.',
@@ -82,11 +85,11 @@ const Navbar = () => {
         <span className="line"></span>
         <span className="line"></span>
       </div>
-      {/* Icono de cierre (X) cuando el menú está abierto */}
+
       <div className={`close-icon ${isOpen ? 'show' : ''}`} onClick={() => setIsOpen(false)}>
         &#10005;
       </div>
-      {/* Menú lateral */}
+
       <ul className={`itemNavbar ${isOpen ? 'open' : ''}`}>
         <li onClick={() => setIsOpen(false)}>
           <Link smooth to='/#quienes-somos' className='container1'>Quienes Somos</Link>
@@ -111,7 +114,12 @@ const Navbar = () => {
         {user ? (
           <>
             <div className="profile-icon" onClick={handleProfileClick}>
-              <HiUserCircle size={30} />
+              {/* Mostrar imagen de perfil si existe, si no, mostrar ícono de usuario */}
+              {profileImage ? (
+                <img src={profileImage} alt="Perfil" className="profile-image" />
+              ) : (
+                <HiUserCircle size={30} />
+              )}
               <span>{user.username}</span>
             </div>
 
