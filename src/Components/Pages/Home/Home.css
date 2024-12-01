@@ -167,14 +167,6 @@
     font-family: "Nunito", sans-serif;
 }
 
-.bono{
-    width: 31rem;
-    height: 27rem;
-    border-radius: 1.3rem;
-    color: #052d23;
-    padding: 1rem;
-    font-family: "Nunito", sans-serif;
-}
 
 .resalto{
     font-weight: 700;
@@ -200,6 +192,52 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.edit-icon{
+ color: #ffffff;
+}
+
+.edit-bono-button{
+    width: 2rem;
+    height: 2rem;
+    margin-top: 1rem;
+    border: none;
+    background-color: #052d23;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+.save-edit-bono{
+    background-color: #052d23;
+    color: #fff;
+    border: solid 2px #1f5c3a;
+    padding: 10px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    width: 13vw;
+    cursor: pointer;
+}
+
+.cancel-edit-bono{
+    background-color: #ffffff;
+    color: #000;
+    border: solid 2px #1f5c3a;
+    padding: 10px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    width: 13vw;
+}
+
+.modal-buttons{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .modal-content {

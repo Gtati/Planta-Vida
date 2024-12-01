@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Swal from 'sweetalert2'; // Importamos SweetAlert2
 import Navbar from "../../Navbar/Navbar";
 import Carousel from "../../Layouts/Carrousel/Carrousel";
 import { Card } from "../../Layouts/Card/Card";
@@ -9,7 +10,7 @@ import ContactForm from "../../Layouts/ContactForm/ContactForm";
 import Pagos from "../../../assets/imagenes/formas-de-pago.jpg";
 import { Information } from "../../Layouts/Information/Information";
 import { Footer } from "../Footer/Footer";
-import { FaTree } from "react-icons/fa";
+import { FaTree, FaEdit } from "react-icons/fa";
 import { GoGift } from "react-icons/go";
 
 import './Home.css';
@@ -20,7 +21,7 @@ function Home() {
     {
       id: 1,
       title: "Bono Celebración",
-      content: "Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas, graduaciones u otros momentos especiales.",
+      content: "Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas u otros momentos especiales.",
       backgroundColor: "#daff99"
     },
     {
@@ -50,13 +51,51 @@ function Home() {
   }, []);
 
   const handleEditBono = (id) => {
-    const bonoToEdit = bonos.find(bono => bono.id === id);
-    setSelectedBono(bonoToEdit);
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "¡Vas a editar este bono!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, editar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const bonoToEdit = bonos.find(bono => bono.id === id);
+        setSelectedBono(bonoToEdit);
+      }
+    });
   };
 
   const handleSaveBono = () => {
-    setBonos(bonos.map(bono => (bono.id === selectedBono.id ? selectedBono : bono)));
-    setSelectedBono(null);
+    Swal.fire({
+      title: '¿Deseas guardar los cambios?',
+      text: "Se guardarán los cambios realizados en el bono.",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Guardar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setBonos(bonos.map(bono => (bono.id === selectedBono.id ? selectedBono : bono)));
+        setSelectedBono(null);
+        Swal.fire('¡Guardado!', 'Los cambios fueron guardados correctamente.', 'success');
+      }
+    });
+  };
+
+  const handleCancelEdit = () => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "Se perderán los cambios realizados.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, cancelar',
+      cancelButtonText: 'No, continuar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        setSelectedBono(null);
+      }
+    });
   };
 
   return (
@@ -80,14 +119,18 @@ function Home() {
           <div className="cards-container">
             {bonos.map(bono => (
               <div key={bono.id} className={`bonos${bono.id}`} style={{ backgroundColor: bono.backgroundColor }}>
-                <Card
-                  title={bono.title}
-                  content={bono.content}
-                  buttonText="Ver Más"
-                />
-                {isAdmin && (
-                  <button onClick={() => handleEditBono(bono.id)} className="edit-bono-button">Editar</button>
-                )}
+                <div className="card-content">
+                  <Card
+                    title={bono.title}
+                    content={bono.content}
+                    buttonText="Ver Más"
+                  />
+                  {isAdmin && (
+                    <button onClick={() => handleEditBono(bono.id)} className="edit-bono-button">
+                      <FaEdit className="edit-icon" />
+                    </button>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -110,8 +153,8 @@ function Home() {
               onChange={(e) => setSelectedBono({ ...selectedBono, content: e.target.value })}
             />
             <div className="modal-buttons">
-              <button onClick={handleSaveBono}>Guardar</button>
-              <button onClick={() => setSelectedBono(null)}>Cancelar</button>
+              <button onClick={handleSaveBono} className='save-edit-bono'>Guardar</button>
+              <button onClick={handleCancelEdit} className='cancel-edit-bono'>Cancelar</button>
             </div>
           </div>
         </div>
@@ -125,7 +168,7 @@ function Home() {
           </div>
           <div className="formas-bono">
             <div className="preguntas-frecuentes">
-              <h2>Nuestra Ubicacion</h2>
+              <h2>Nuestra Ubicación</h2>
               <LocationCard />
             </div>
             <div className="preguntas-frecuentes">
