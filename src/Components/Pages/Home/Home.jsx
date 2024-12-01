@@ -124,6 +124,7 @@ function Home() {
                     title={bono.title}
                     content={bono.content}
                     buttonText="Ver Más"
+                    bonoId={bono.id} // Pasamos el ID para identificar cada bono
                   />
                   {isAdmin && (
                     <button onClick={() => handleEditBono(bono.id)} className="edit-bono-button">
