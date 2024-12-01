@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from '../../UserContext/UserContext';
 import "./UserProfile.css";
@@ -10,10 +10,9 @@ import Roble2 from '../../../assets/imagenes/roble2.jpg'
 import Roble3 from '../../../assets/imagenes/roble3.jpg'
 import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
 
-
 const UserProfile = () => {
   const { userData } = useContext(UserContext);
-  const [profileImage, setProfileImage] = useState("src/assets/user.png");
+  const [profileImage, setProfileImage] = useState(localStorage.getItem('profileImage') || "src/assets/user.png");
   const navigate = useNavigate();
 
   const handleImageChange = (e) => {
@@ -21,7 +20,10 @@ const UserProfile = () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = () => {
-        setProfileImage(reader.result);
+        // Guardar la imagen en localStorage
+        const imageBase64 = reader.result;
+        setProfileImage(imageBase64);
+        localStorage.setItem('profileImage', imageBase64);
       };
       reader.readAsDataURL(file);
     }
@@ -31,7 +33,6 @@ const UserProfile = () => {
     // Redirige a la ruta "/postal"
     navigate('/postal');
   };
-  
 
   const handleCancel = () => {
     // Elimina la información del usuario en localStorage
@@ -52,7 +53,6 @@ const UserProfile = () => {
       }
     });
   };
-  
 
   return (
     <div className="user-profile-page">
@@ -66,7 +66,7 @@ const UserProfile = () => {
         {/* Sección de Información del Usuario */}
         <div className="info-section user-section">
           {/* Mostrar la imagen de perfil subida o la imagen por defecto */}
-          <img src={profileImage} alt="" className="profile-image" />
+          <img src={profileImage} alt="Imagen de perfil" className="profile-image2" />
           <div className="information-user">
             <h2>{userData.fullName || "Nombre no disponible"}</h2>
             <p><strong>Telefono:</strong> {userData.phone || "Teléfono no disponible"}</p>
