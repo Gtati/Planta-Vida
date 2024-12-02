@@ -113,9 +113,13 @@ const ShoppingCart = () => {
                 </>
               )}
 
-              <button onClick={() => setSelectedBono(null)} className="delete-bono">
-                Eliminar Bono
-              </button>
+<button onClick={() => {
+  setSelectedBono(null); // Limpiar bono seleccionado
+  removeBono(); // Limpiar carrito
+}} className="delete-bono">
+  Eliminar Bono
+</button>
+
             </>
           ) : (
             <p>No has seleccionado ningún bono aún.</p>
