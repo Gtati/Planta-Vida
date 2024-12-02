@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import jsPDF from "jspdf";
 import "./Postal.css";
-import LogoVerde from "../../../assets/imagenes/logoPlantaVidaVerde.webp"
+import LogoNegro from "../../../assets/imagenes/logoPlantaVidaVerde.webp";
 
 
 import { FaHome } from "react-icons/fa";
@@ -39,41 +39,56 @@ const PostalCreator = () => {
   
     const pdf = new jsPDF();
   
-    // Fondo verde claro
-    pdf.setFillColor(204, 255, 204); // Verde claro
-    pdf.rect(0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight(), "F");
+    // Fondo blanco para la postal, con un borde sutil
+    pdf.setFillColor(255, 255, 255); // Blanco
+    pdf.rect(5, 5, pdf.internal.pageSize.getWidth() - 10, pdf.internal.pageSize.getHeight() - 10, "F");
+    pdf.setDrawColor(200, 200, 200); // Borde gris suave
+    pdf.rect(5, 5, pdf.internal.pageSize.getWidth() - 10, pdf.internal.pageSize.getHeight() - 10);
   
-    // Agregar el logo como encabezado
+    // Logo en la parte superior centrado
     const logo = new Image();
-    logo.src = LogoVerde; // Asegúrate de que `Logo` esté importado
+    logo.src = LogoNegro;
     logo.onload = () => {
-      pdf.addImage(logo, "PNG", 85, 10, 40, 20); // Posición y tamaño del logo
+      pdf.addImage(logo, "PNG", (pdf.internal.pageSize.getWidth() - 50) / 2, 15, 50, 30); // Logo centrado y de tamaño ajustado
   
-      // Encabezado
-      pdf.setFontSize(22);
-      pdf.setTextColor(0, 102, 51); // Verde oscuro
-      pdf.text("Postal Planta Vida", 105, 40, { align: "center" });
+      // Título de la postal
+      pdf.setFontSize(28);
+      pdf.setTextColor(50, 50, 50); // Gris oscuro
+      pdf.text("Postal Planta Vida", pdf.internal.pageSize.getWidth() / 2, 60, { align: "center" });
   
-      // Subtítulos
-      pdf.setFontSize(14);
-      pdf.text("Dedicatoria", 20, 60);
-      pdf.text("Mensaje", 20, 90);
-  
-      // Contenido
+      // Espaciado entre el título y el contenido
       pdf.setFontSize(12);
-      pdf.setTextColor(34, 34, 34); // Gris oscuro
-      pdf.text(formData.name, 20, 70);
-      pdf.text(formData.message, 20, 100, { maxWidth: 170 });
+      pdf.text("", pdf.internal.pageSize.getWidth() / 2, 80); // Espacio vacío
   
-      // Imagen cargada por el usuario
+      // Dedicatoria
+      pdf.setFontSize(18);
+      pdf.setTextColor(30, 30, 30); // Gris oscuro
+      pdf.text("Dedicatoria:", 20, 100);
+      pdf.setFontSize(16);
+      pdf.setTextColor(0, 0, 0); // Negro
+      pdf.text(formData.name, 20, 115);
+  
+      // Mensaje
+      pdf.setFontSize(18);
+      pdf.setTextColor(30, 30, 30); // Gris oscuro
+      pdf.text("Mensaje:", 20, 135);
+      pdf.setFontSize(14);
+      pdf.setTextColor(60, 60, 60); // Gris medio
+      pdf.text(formData.message, 20, 150, { maxWidth: 170 });
+  
+      // Imagen cargada por el usuario (solo si existe)
       if (formData.image) {
-        pdf.addImage(formData.image, "JPEG", 70, 120, 70, 70); // Tamaño ajustado
+        pdf.addImage(formData.image, "JPEG", (pdf.internal.pageSize.getWidth() - 80) / 2, 170, 80, 80); // Imagen centrada
       }
   
-      // Pie de página
+      // Espacio vacío antes del pie de página
+      pdf.setFontSize(12);
+      pdf.text("", 105, 250); // Espacio vacío
+  
+      // Pie de página con agradecimiento
       pdf.setFontSize(10);
-      pdf.setTextColor(0, 51, 25); // Verde más oscuro
-      pdf.text("Gracias por ser parte de Planta Vida", 105, 280, { align: "center" });
+      pdf.setTextColor(90, 90, 90); // Gris claro
+      pdf.text("Gracias por ser parte de Planta Vida", pdf.internal.pageSize.getWidth() / 2, 280, { align: "center" });
   
       // Guardar el PDF
       pdf.save("postal.pdf");

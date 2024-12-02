@@ -361,6 +361,10 @@ body {
     z-index: 1;
     margin: 1rem;
   }
+
+  .itemNavbar.open{
+    height: 17rem;
+  }
 }
 
 @media (max-width :480px) {

@@ -73,6 +73,11 @@
 
 .information-user {
   margin-right: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
 }
 
 .information-user h2 {
@@ -100,6 +105,7 @@ input[type="file"] {
   font-family: 'Roboto', sans-serif;
   font-size: 0.9rem;
   color: #fff;
+  margin-left: 1rem;
 }
 
 .buttons-container {
@@ -235,6 +241,29 @@ input[type="file"] {
  .arbol{
   color: #e2fea5;
  }
+
+ .default-profile-icon {
+  font-size: 120px;
+  color: #ccc;
+  display: block;
+  margin-left: 2rem;
+}
+
+.delete-image-button{
+  border: solid 2px #215e3b;
+  background-color: #fff;
+  color: #222;
+  padding: 5px 13px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  width: 11rem;
+  margin-right: 10rem;
+  margin-top: 1rem;
+}
+
 
  @media (max-width: 1279px){
   .location-tree{

@@ -368,8 +368,8 @@
     }
 
     .bonos1, .bonos2, .bonos3 {
-        width: 14rem;
-        height: 32rem;
+        width: 24rem;
+        height: 25rem;
     }
 
     .title-card{
@@ -411,6 +411,8 @@
         font-size: 2rem;
         padding-top: 8rem;
     }
+
+
 }
 
 @media  (max-width: 768px){

@@ -89,9 +89,6 @@ const Login = () => {
               required
             />
           </div>
-          <div className="forgot-password">
-            <Link to="/forgot-password">¿Olvidaste la contraseña?</Link>
-          </div>
           <div className="login-buttons">
             <button type="submit" className="btn-login">Iniciar Sesión</button>
           </div>
