@@ -17,29 +17,10 @@ import './Home.css';
 
 function Home() {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [bonos, setBonos] = useState([
-    {
-      id: 1,
-      title: "Bono Celebración",
-      content: "Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas u otros momentos especiales.",
-      backgroundColor: "#daff99"
-    },
-    {
-      id: 2,
-      title: "Bono Exequial",
-      content: "Este bono está diseñado para rendir homenaje a una persona fallecida, ofreciendo una manera significativa de honrar su memoria.",
-      backgroundColor: "#dbd7ff"
-    },
-    {
-      id: 3,
-      title: "Bono Ambiental",
-      content: "Con este bono apoya la conservación y recuperación de los bosques de las zonas urbanas y rurales del departamento del Quindío.",
-      backgroundColor: "#daeafd"
-    }
-  ]);
-
+  const [bonos, setBonos] = useState([]);
   const [selectedBono, setSelectedBono] = useState(null);
 
+  // Cargar datos del usuario y bonos desde localStorage
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
@@ -48,8 +29,37 @@ function Home() {
         setIsAdmin(true);
       }
     }
+
+    const storedBonos = JSON.parse(localStorage.getItem('bonos'));
+    if (storedBonos && storedBonos.length > 0) {
+      setBonos(storedBonos);
+    } else {
+      const initialBonos = [
+        {
+          id: 1,
+          title: "Bono Celebración",
+          content: "Este bono representa la siembra y cuidado de un árbol nativo, ideal para celebrar cumpleaños, bodas u otros momentos especiales.",
+          backgroundColor: "#daff99",
+        },
+        {
+          id: 2,
+          title: "Bono Exequial",
+          content: "Este bono está diseñado para rendir homenaje a una persona fallecida, ofreciendo una manera significativa de honrar su memoria.",
+          backgroundColor: "#dbd7ff",
+        },
+        {
+          id: 3,
+          title: "Bono Ambiental",
+          content: "Con este bono apoya la conservación y recuperación de los bosques de las zonas urbanas y rurales del departamento del Quindío.",
+          backgroundColor: "#daeafd",
+        },
+      ];
+      setBonos(initialBonos);
+      localStorage.setItem('bonos', JSON.stringify(initialBonos));
+    }
   }, []);
 
+  // Editar un bono
   const handleEditBono = (id) => {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -57,15 +67,16 @@ function Home() {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sí, editar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        const bonoToEdit = bonos.find(bono => bono.id === id);
+        const bonoToEdit = bonos.find((bono) => bono.id === id);
         setSelectedBono(bonoToEdit);
       }
     });
   };
 
+  // Guardar cambios en un bono
   const handleSaveBono = () => {
     Swal.fire({
       title: '¿Deseas guardar los cambios?',
@@ -73,16 +84,21 @@ function Home() {
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Guardar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        setBonos(bonos.map(bono => (bono.id === selectedBono.id ? selectedBono : bono)));
+        const updatedBonos = bonos.map((bono) =>
+          bono.id === selectedBono.id ? selectedBono : bono
+        );
+        setBonos(updatedBonos);
+        localStorage.setItem('bonos', JSON.stringify(updatedBonos)); // Guardar en localStorage
         setSelectedBono(null);
         Swal.fire('¡Guardado!', 'Los cambios fueron guardados correctamente.', 'success');
       }
     });
   };
 
+  // Cancelar edición de un bono
   const handleCancelEdit = () => {
     Swal.fire({
       title: '¿Estás seguro?',
@@ -90,7 +106,7 @@ function Home() {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Sí, cancelar',
-      cancelButtonText: 'No, continuar'
+      cancelButtonText: 'No, continuar',
     }).then((result) => {
       if (result.isConfirmed) {
         setSelectedBono(null);
@@ -103,8 +119,12 @@ function Home() {
       <Navbar />
       <section id="quienes-somos" className="QuienesSomos">
         <div className="quienes-somos">
-          <h2 className="title">Un programa liderado por <span className="title-span">La Cámara de Comercio de Armenia y del Quindío</span></h2>
-          <h3 className="title-text">Más allá de plantar un árbol, este bono es símbolo de vida, un aporte al bienestar del planeta y al recuerdo de momentos memorables, que se prolongan desde la semilla hasta el crecimiento de un nuevo ser...</h3>
+          <h2 className="title">
+            Un programa liderado por <span className="title-span">La Cámara de Comercio de Armenia y del Quindío</span>
+          </h2>
+          <h3 className="title-text">
+            Más allá de plantar un árbol, este bono es símbolo de vida, un aporte al bienestar del planeta y al recuerdo de momentos memorables, que se prolongan desde la semilla hasta el crecimiento de un nuevo ser...
+          </h3>
           <Carousel />
         </div>
       </section>
@@ -117,17 +137,24 @@ function Home() {
           </div>
 
           <div className="cards-container">
-            {bonos.map(bono => (
-              <div key={bono.id} className={`bonos${bono.id}`} style={{ backgroundColor: bono.backgroundColor }}>
+            {bonos.map((bono) => (
+              <div
+                key={bono.id}
+                className={`bonos${bono.id}`}
+                style={{ backgroundColor: bono.backgroundColor }}
+              >
                 <div className="card-content">
                   <Card
                     title={bono.title}
                     content={bono.content}
                     buttonText="Ver Más"
-                    bonoId={bono.id} // Pasamos el ID para identificar cada bono
+                    bonoId={bono.id}
                   />
                   {isAdmin && (
-                    <button onClick={() => handleEditBono(bono.id)} className="edit-bono-button">
+                    <button
+                      onClick={() => handleEditBono(bono.id)}
+                      className="edit-bono-button"
+                    >
                       <FaEdit className="edit-icon" />
                     </button>
                   )}
@@ -146,16 +173,24 @@ function Home() {
             <input
               type="text"
               value={selectedBono.title}
-              onChange={(e) => setSelectedBono({ ...selectedBono, title: e.target.value })}
+              onChange={(e) =>
+                setSelectedBono({ ...selectedBono, title: e.target.value })
+              }
             />
             <label>Descripción del Bono:</label>
             <textarea
               value={selectedBono.content}
-              onChange={(e) => setSelectedBono({ ...selectedBono, content: e.target.value })}
+              onChange={(e) =>
+                setSelectedBono({ ...selectedBono, content: e.target.value })
+              }
             />
             <div className="modal-buttons">
-              <button onClick={handleSaveBono} className='save-edit-bono'>Guardar</button>
-              <button onClick={handleCancelEdit} className='cancel-edit-bono'>Cancelar</button>
+              <button onClick={handleSaveBono} className="save-edit-bono">
+                Guardar
+              </button>
+              <button onClick={handleCancelEdit} className="cancel-edit-bono">
+                Cancelar
+              </button>
             </div>
           </div>
         </div>
