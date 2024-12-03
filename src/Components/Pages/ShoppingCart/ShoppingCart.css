@@ -99,3 +99,48 @@
 .finalize-purchase:focus {
   outline: none;
 }
+/*.paypal-section {
+  width: 14rem;
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  background: linear-gradient(135deg, #a6e769, #23381b);
+  border-radius: 28px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 400px;
+  border: 2px solid #4c9c70;
+  
+}*/
+
+.paypal-section h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #db0808;
+  margin-bottom: 50px;
+}
+
+.custom-paypal-button {
+  width: 14rem;
+  height: 3rem;
+  margin-top:6px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px; /* Aplicar bordes redondeados */
+  overflow: hidden; /* Esconde cualquier elemento fuera de los bordes redondeados */
+  border: 2px solid #4c9c70;
+  border-radius: 28px;
+  
+}
+
+.custom-paypal-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.custom-paypal-button .paypal-button-label {
+  font-size: 1rem; /* Tamaño de texto personalizado */
+}
+

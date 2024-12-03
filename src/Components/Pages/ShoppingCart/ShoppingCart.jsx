@@ -6,6 +6,7 @@ import { BonoContext } from '../../Layouts/BonoContext/BonoContext';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import './ShoppingCart.css';
 
 const ShoppingCart = () => {
@@ -83,6 +84,25 @@ const ShoppingCart = () => {
     });
   };
 
+  const handlePaypalApprove = (details) => {
+    Swal.fire({
+      title: '¡Compra finalizada con PayPal!',
+      text: `Gracias por tu compra, ${details.payer.name.given_name}.`,
+      icon: 'success',
+      confirmButtonText: 'Aceptar',
+    }).then(() => {
+      setSelectedBono(null);
+      removeBono();
+      navigate('/');
+    });
+  };
+
+  const paypalOptions = {
+    "client-id": "AXGUk436HqGM91z5d4Y2SDFTlhQ8LXkhcZp1YvNfE_TkjTxJU-WIx-aZlGB2LIdqO04JCO0qY0yQHs5b",
+    currency: "COP",
+    intent: "capture",
+  };
+
   return (
     <>
       <Navbar />
@@ -112,13 +132,42 @@ const ShoppingCart = () => {
                   </button>
                 </>
               )}
+              <div className="paypal-section">
+                <PayPalScriptProvider options={paypalOptions}>
+                  <PayPalButtons
+                    style={{
+                      layout: "horizontal", // horizontal o vertical
+                      color: "silver", // colores disponibles: blue, gold, silver, white, black
+                      shape: "pill", // opciones: pill o rect
+                      label: "pay", // opciones: paypal, pay, buy, donate
+                      tagline: false, // mostrar o esconder la etiqueta inferior
+                      height: 50, // altura del botón (en píxeles)
+                    }}
+                    className='custom-paypal-button'
+                    createOrder={(data, actions) =>
+                      actions.order.create({
+                        purchase_units: [
+                          {
+                            amount: {
+                              value: "100.000", // Monto en USD
+                            },
+                          },
+                        ],
+                      })
+                    }
+                    onApprove={(data, actions) =>
+                      actions.order.capture().then(handlePaypalApprove)
+                    }
+                  />
+                </PayPalScriptProvider>
+              </div>
 
-<button onClick={() => {
-  setSelectedBono(null); // Limpiar bono seleccionado
-  removeBono(); // Limpiar carrito
-}} className="delete-bono">
-  Eliminar Bono
-</button>
+              <button onClick={() => {
+                setSelectedBono(null); // Limpiar bono seleccionado
+                removeBono(); // Limpiar carrito
+              }} className="delete-bono">
+                Eliminar Bono
+              </button>
 
             </>
           ) : (
