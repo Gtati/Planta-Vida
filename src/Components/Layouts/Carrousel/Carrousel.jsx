@@ -71,24 +71,39 @@ const Carrusel = () => {
     if (newImage) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        const base64Image = e.target.result;
-        Swal.fire({
-          title: '¿Estás seguro?',
-          text: '¿Quieres agregar esta imagen al carrusel?',
-          icon: 'question',
-          showCancelButton: true,
-          confirmButtonText: 'Sí, agregar',
-          cancelButtonText: 'Cancelar',
-        }).then((result) => {
-          if (result.isConfirmed) {
-            const updatedImages = [...additionalImages, base64Image];
-            setAdditionalImages(updatedImages);
-            localStorage.setItem('additionalImages', JSON.stringify(updatedImages));
-            setNewImage(null);
-            setShowAddModal(false);
-            Swal.fire('Imagen agregada', '', 'success');
-          }
-        });
+        const img = new Image();
+        img.src = e.target.result;
+
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Reducir tamaño de la imagen
+          canvas.width = 300; // Ajusta el ancho
+          canvas.height = (img.height / img.width) * 300;
+
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          const resizedBase64 = canvas.toDataURL('image/jpeg', 0.7); // Ajusta la calidad (0.7 = 70%)
+
+          Swal.fire({
+            title: '¿Estás seguro?',
+            text: '¿Quieres agregar esta imagen al carrusel?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, agregar',
+            cancelButtonText: 'Cancelar',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              const updatedImages = [...additionalImages, resizedBase64];
+              setAdditionalImages(updatedImages);
+              localStorage.setItem('additionalImages', JSON.stringify(updatedImages));
+              setNewImage(null);
+              setShowAddModal(false);
+              Swal.fire('Imagen agregada', '', 'success');
+            }
+          });
+        };
       };
       reader.readAsDataURL(newImage);
     }

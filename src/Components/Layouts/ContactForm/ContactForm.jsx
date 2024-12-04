@@ -25,7 +25,7 @@ const ContactForm = () => {
     // Parámetros de EmailJS (reemplaza con tus propios valores)
     const serviceID = 'service_dltxr9j';
     const templateID = 'template_mnxxejk';
-    const userID = 'E_Dr3O58R3_9tc-xS';
+    const userID = 'fEcD5F3XzT_XZ1j-1';
 
     // Datos que se envían al correo (las variables deben coincidir con las de la plantilla en EmailJS)
     const templateParams = {
