@@ -63,12 +63,8 @@ const Navbar = () => {
     if (user && user.role !== 'admin') {
       navigate('/user-profile');
     } else {
-      Swal.fire({
-        title: 'Acción no permitida',
-        text: 'Solo los usuarios normales pueden acceder al perfil.',
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
+      navigate('/admin-profile'); // Redirigir al componente AdminProfile.jsx
+
     }
   };
 

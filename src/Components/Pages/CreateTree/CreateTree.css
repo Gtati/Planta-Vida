@@ -1,0 +1,74 @@
+.create-tree-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f4f9;
+    min-height: 100vh;
+    justify-content: space-between; /* Esto asegura que el contenido se distribuya de manera equitativa */
+}
+
+.header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px; /* Esto crea espacio entre las imágenes y el botón */
+}
+
+.image-item {
+    position: relative;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, border 0.3s;
+}
+
+.image-item:hover {
+    transform: scale(1.05);
+    border-color: #1E90FF;
+}
+
+.image-item.selected {
+    border-color: #1E90FF;
+}
+
+.tree-image {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.image-description {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.assign-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 50px; /* Agrega más espacio arriba del botón */
+}
+
+.assign-button:hover {
+    background-color: #45a049;
+}

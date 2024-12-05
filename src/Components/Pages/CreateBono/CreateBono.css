@@ -1,0 +1,215 @@
+/* Contenedor principal */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(221, 214, 214);
+    margin-top: 3rem;
+  }
+  
+  /* Título del formulario */
+  .form-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Estilos para el formulario */
+  .form {
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Estilos para los grupos de formulario */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Estilos para las etiquetas */
+  label {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Estilos para los campos de entrada */
+  .input-field {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .input-field:focus {
+    border-color: #4CAF50;
+    outline: none;
+  }
+  
+  /* Estilos para el botón de envío */
+  .submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  /* Estilos para el mensaje de respuesta */
+  .message {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-top: 20px;
+  }
+
+  
+  /* Estilos para la modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  height: 37rem;
+  overflow-y: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 26rem; /* Ajustado para estar más cerca de la esquina */
+  font-size: 24px; /* Tamaño de fuente más grande para visibilidad */
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #333; /* Color oscuro para el texto */
+  padding: 10px;
+  transition: color 0.3s, transform 0.3s; /* Transición suave */
+}
+
+.close-button:hover {
+  color: #ff4d4d; /* Color cuando pasa el cursor */
+  transform: scale(1.1); /* Efecto de agrandar el botón */
+}
+
+.close-button:focus {
+  outline: none; /* Elimina el contorno al hacer foco */
+}
+
+
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.image-item {
+  text-align: center;
+}
+
+.image {
+  width: rem;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+.assign-tree-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.assign-tree-button:hover {
+  background-color: #218838;
+}
+
+/* Contenedor de las imágenes en el modal */
+.images-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 columnas */
+  gap: 30px;  /* Espacio entre las imágenes */
+  margin-top: 20px;
+}
+
+/* Estilo para cada imagen */
+.image-item {
+  text-align: center;
+}
+
+/* Estilo para las imágenes */
+.image {
+  
+  max-width: 100%;
+  width: 9rem;
+  height: 10rem;
+  border-radius: 8px;
+  border: 2px solid rgb(99, 221, 99);
+}
+
+/* Estilo para cada imagen cuando se pasa el ratón por encima */
+.image-item:hover .image {
+  transform: scale(1.05);  /* Aumenta el tamaño de la imagen */
+  transition: transform 0.3s ease-in-out; /* Animación suave */
+  border-color: #28a745; /* Cambia el color del borde */
+}
+
+/* Opcional: efecto visual en el contenedor de la imagen */
+.image-item:hover {
+  cursor: pointer; /* Cambia el cursor para indicar que la imagen es seleccionable */
+}
+
+.image-item {
+  cursor: pointer;
+  padding: 10px;
+  transition: transform 0.3s;
+  border: 2px solid transparent;  /* Sin borde por defecto */
+  border-radius: 10px;  /* Para bordes redondeados */
+}
+
+.image-item.selected {
+  border: 2px solid #4caf50;  /* Resaltado con un borde verde */
+  background-color: #f0f8f0;  /* Fondo verde suave */
+  transform: scale(1.05);  /* Aumenta el tamaño ligeramente */
+}
+
+.image-item img {
+  max-width: 100%;
+  display: block;
+  border-radius:3px;
+}
+
