@@ -39,7 +39,7 @@ const ShoppingCart = () => {
 
   const createPreference = async () => {
     try {
-      const response = await axios.post('http://localhost:8080/create_preference', {
+      const response = await axios.post('https://planta-vida.vercel.app/create_preference', {
         title: selectedBono, // Usa el bono seleccionado como título
         quantity: 1,
         price: 100000, // Precio fijo, ajustable según lógica
@@ -80,7 +80,7 @@ const ShoppingCart = () => {
     }).then(() => {
       setSelectedBono(null); // Limpiar el bono seleccionado
       removeBono(); // Limpiar el carrito
-      navigate('/'); // Redirigir a la página principal
+      navigate('/create-buyer'); // Redirigir a la página principal
     });
   };
 
