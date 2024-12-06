@@ -144,21 +144,17 @@ function Home() {
                 style={{ backgroundColor: bono.backgroundColor }}
               >
                 <div className="card-content">
-                  {!isAdmin && ( // Ocultar el botón completamente si es admin
-                    <Card
-                      title={bono.title}
-                      content={bono.content}
-                      buttonText="Ver Más"
-                      bonoId={bono.id}
-                    />
-                  )}
+                  <Card
+                    title={bono.title}
+                    content={bono.content}
+                    buttonText="Ver Más"
+                    bonoId={bono.id}
+                  />
                   {isAdmin && (
                     <button
                       onClick={() => handleEditBono(bono.id)}
                       className="edit-bono-button"
-                    >
-                      Editar
-                    </button>
+                    >Editar</button>
                   )}
                 </div>
               </div>
