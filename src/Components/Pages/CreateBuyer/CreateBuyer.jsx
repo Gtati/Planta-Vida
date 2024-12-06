@@ -96,10 +96,10 @@ export const CreateBuyer = () => {
 
   return (
     <div className="crear-comprador">
-      <h2>Crear Comprador</h2>
+      <h2>Informacion del Comprador</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>ID Comprador:</label>
+          <label>Cedula Comprador:</label>
           <input
             type="number"
             name="idComprador"
