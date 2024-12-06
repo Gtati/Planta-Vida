@@ -44,9 +44,9 @@ app.post("/create_preference", async (req, res) => {
         email: "test_user_925634084@testuser.com", // Email de prueba de Mercado Pago
       },
       back_urls: {
-        success: "https://planta-vida-git-develop-tatianiita2005gmailcoms-projects.vercel.app/",
-        failure: "https://planta-vida-git-develop-tatianiita2005gmailcoms-projects.vercel.app/",
-        pending: "https://planta-vida-git-develop-tatianiita2005gmailcoms-projects.vercel.app/",
+        success: "https://planta-vida.vercel.app/",
+        failure: "https://planta-vida.vercel.app/",
+        pending: "https://planta-vida.vercel.app/",
       },
       auto_return: "approved",
     };

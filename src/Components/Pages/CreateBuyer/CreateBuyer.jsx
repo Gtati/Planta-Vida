@@ -64,7 +64,7 @@ export const CreateBuyer = () => {
               confirmButtonText: 'Ok',
             }).then(() => {
               // Redirigir después de hacer clic en "Ok"
-              window.location.href = 'http://localhost:5173/#quienes-somos';
+              window.location.href = 'https://planta-vida.vercel.app/';
             });
           })
           .catch((error) => {
@@ -96,10 +96,10 @@ export const CreateBuyer = () => {
 
   return (
     <div className="crear-comprador">
-      <h2>Crear Comprador</h2>
+      <h2>Informacion del Comprador</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>ID Comprador:</label>
+          <label>Cedula Comprador:</label>
           <input
             type="number"
             name="idComprador"
@@ -152,7 +152,7 @@ export const CreateBuyer = () => {
             <option value="ambiental">Ambiental</option>
           </select>
         </div>
-        <button type="submit">Crear Comprador</button>
+        <button type="submit">Enviar información</button>
       </form>
       {mensaje && <p>{mensaje}</p>}
       <p className="informacion">
