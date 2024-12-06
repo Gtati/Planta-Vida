@@ -379,10 +379,6 @@ body {
     height: 3rem;
     padding: 0;
   }
-
-  .container-items.scrolled .register{
-    margin-right: 10px;
-  } 
   
   .itemNavbar.open{
     height: 16.5rem;
