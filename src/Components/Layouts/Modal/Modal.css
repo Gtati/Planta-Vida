@@ -73,7 +73,7 @@
 .carrito-button {
   width: 60%;
   height: 2.4rem;
-  border-radius: 2rem;
+  border-radius: 10px;
   background: #0c4537;
   font-size: 1rem;
   cursor: pointer;
