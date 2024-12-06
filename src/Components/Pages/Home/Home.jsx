@@ -154,7 +154,7 @@ function Home() {
                     <button
                       onClick={() => handleEditBono(bono.id)}
                       className="edit-bono-button"
-                    >Editar</button>
+                    >Editar </button>
                   )}
                 </div>
               </div>
