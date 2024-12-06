@@ -58,12 +58,13 @@ const Navbar = () => {
       }
     });
   };
-
+  
   const handleProfileClick = () => {
     if (user && user.role !== 'admin') {
       navigate('/user-profile');
     } else {
       navigate('/admin-profile'); // Redirigir al componente AdminProfile.jsx
+
     }
   };
 
@@ -115,7 +116,7 @@ const Navbar = () => {
               ) : (
                 <HiUserCircle size={30} />
               )}
-              <span>{user.username}</span> {/* Mostrar el username desde localStorage */}
+              <span>{user.username}</span>
             </div>
 
             <button onClick={handleLogout} className="logout-button">Cerrar Sesión</button>
