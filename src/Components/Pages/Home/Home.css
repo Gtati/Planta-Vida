@@ -143,7 +143,20 @@
     background: #0c4537;
     color: white;
     border: solid 2px #4c9c70;
-    border-radius: 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.edit-bono-button{
+    width: 14rem;
+    height: 2.5rem;
+    background: #0c4537;
+    color: white;
+    border: solid 2px #4c9c70;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
     transition: 0.3s ease;
@@ -156,8 +169,8 @@
 
 .tree-icon{
     color: #0c4537;
-    width: 2.7rem;
-    height: 2.7rem;
+    width: 5rem;
+    height: 5rem;
 }
 
 .title-bonos{
@@ -192,10 +205,6 @@
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
-}
-
-.edit-icon{
- color: #ffffff;
 }
 
 .edit-bono-button{
@@ -258,6 +267,11 @@
 }
 
 /* Seccion Preguntas frecuentes */
+
+.gift{
+    width: 4rem;
+    height: 4rem;
+}
 
 .PreguntasFrecuentes{
     display: flex;

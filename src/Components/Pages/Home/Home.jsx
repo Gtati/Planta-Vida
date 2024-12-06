@@ -154,9 +154,7 @@ function Home() {
                     <button
                       onClick={() => handleEditBono(bono.id)}
                       className="edit-bono-button"
-                    >
-                      <FaEdit className="edit-icon" />
-                    </button>
+                    >Editar</button>
                   )}
                 </div>
               </div>
@@ -199,7 +197,7 @@ function Home() {
       <section id="preguntas-frecuentes" className="PreguntasFrecuentes">
         <div className="containerPreguntas">
           <div className="header-preguntas">
-            <GoGift />
+            <GoGift className='gift'/>
             <h2>Formas de Adquirir el Bono</h2>
           </div>
           <div className="formas-bono">
