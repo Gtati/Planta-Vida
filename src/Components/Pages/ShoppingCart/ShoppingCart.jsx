@@ -99,7 +99,7 @@ const ShoppingCart = () => {
 
   const paypalOptions = {
     "client-id": "AXGUk436HqGM91z5d4Y2SDFTlhQ8LXkhcZp1YvNfE_TkjTxJU-WIx-aZlGB2LIdqO04JCO0qY0yQHs5b",
-    currency: "COP",
+    currency: "USD",
     intent: "capture",
   };
 
@@ -149,7 +149,7 @@ const ShoppingCart = () => {
                         purchase_units: [
                           {
                             amount: {
-                              value: "100.000", // Monto en USD
+                              value: "22.51", // Monto en USD
                             },
                           },
                         ],
