@@ -10,7 +10,7 @@ const port = 8080;
 
 // Middleware
 app.use(cors({
-  origin: "https://planta-vida.vercel.app/", // Cambia esto según la URL de tu frontend
+  origin: '*', // Permitir todos los orígenes para pruebas
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));

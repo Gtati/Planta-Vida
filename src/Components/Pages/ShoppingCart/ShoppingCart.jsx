@@ -87,7 +87,7 @@ const ShoppingCart = () => {
   const handlePaypalApprove = (details) => {
     Swal.fire({
       title: '¡Compra finalizada con PayPal!',
-      text: `Gracias por tu compra, ${details.payer.name.given_name}.`,
+      text: `Gracias por tu compra, ${details.payer.name.given_name}`,
       icon: 'success',
       confirmButtonText: 'Aceptar',
     }).then(() => {
