@@ -34,6 +34,11 @@ export const AdminProfile = () => {
     navigate('/create-bono');
   };
 
+  const handleHomeClick = () => {
+    // Redirige al Home
+    navigate('/');
+  };
+
   // Función para determinar el color según los datos de bono y árbol
   const getColor = (bonos) => {
     // Verificamos si el comprador tiene bonos y si alguno tiene un árbol asignado
@@ -57,6 +62,9 @@ export const AdminProfile = () => {
       </ul>
       <button className="create-bono-button" onClick={handleBonoClick}>
         Crear bonos y asignarlos
+      </button>
+      <button className="home-button" onClick={handleHomeClick}>
+        Volver al Home
       </button>
     </div>
   );
