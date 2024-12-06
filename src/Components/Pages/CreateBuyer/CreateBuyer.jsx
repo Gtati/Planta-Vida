@@ -64,7 +64,7 @@ export const CreateBuyer = () => {
               confirmButtonText: 'Ok',
             }).then(() => {
               // Redirigir después de hacer clic en "Ok"
-              window.location.href = 'http://localhost:5173/#quienes-somos';
+              window.location.href = 'https://planta-vida.vercel.app/';
             });
           })
           .catch((error) => {
