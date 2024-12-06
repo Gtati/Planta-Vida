@@ -83,7 +83,7 @@
     background-color: #fff;
     color: #222;
     padding: 10px 15px;
-    border-radius: 7px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
     font-family:"Roboto", sans-serif;
@@ -100,7 +100,7 @@
     background-color: #052d23;
     color: #fff;
     padding: 10px 15px;
-    border-radius: 7px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1rem;
     font-family:"Roboto", sans-serif;
