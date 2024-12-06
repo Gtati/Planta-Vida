@@ -34,12 +34,25 @@ export const AdminProfile = () => {
     navigate('/create-bono');
   };
 
+  // Función para determinar el color según los datos de bono y árbol
+  const getColor = (bonos) => {
+    // Verificamos si el comprador tiene bonos y si alguno tiene un árbol asignado
+    const tieneArbol = bonos.some(bono => bono.arbol); // Verifica si al menos un bono tiene un árbol
+    return tieneArbol ? 'blue' : 'black';  // Si tiene árbol, nombre verde, si no, negro
+  };
+
   return (
     <div className="admin-profile-container">
       <h1 className="admin-profile-title">Compradores</h1>
       <ul className="compradores-list">
         {compradores.map((comprador, index) => (
-          <li key={index} className="comprador-item">{comprador.nombre}</li>
+          <li 
+            key={index} 
+            className="comprador-item" 
+            style={{ color: getColor(comprador.bonos) }}
+          >
+            {comprador.nombre}
+          </li>
         ))}
       </ul>
       <button className="create-bono-button" onClick={handleBonoClick}>

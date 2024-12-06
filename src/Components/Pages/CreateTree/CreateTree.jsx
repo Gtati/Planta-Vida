@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './CreateTree.css';  // Asegúrate de importar el archivo CSS
 import Swal from 'sweetalert2'; // Importa SweetAlert2
+import { useNavigate } from 'react-router-dom';  // Importa useNavigate
 
 // Imágenes importadas
 import acaciaImage from '../../../assets/imagenes/arboles/Acacia.jpg';
@@ -12,6 +13,7 @@ import pinoImage from '../../../assets/imagenes/arboles/Pino.jpg';
 
 export const CreateTree = () => {
   const [selectedTree, setSelectedTree] = useState(null);
+  const navigate = useNavigate();  // Inicializa el hook useNavigate
 
   const images = [
     { tipo: "frutal", descripcion: "Guayacan amarillo", ubicacion: "18 N 424287.312 502444.620", imagen: "guayacanaImage", url: guayacanaImage },
@@ -51,6 +53,9 @@ export const CreateTree = () => {
               text: `El árbol ${data.descripcion} ha sido asignado con éxito.`,
               icon: 'success',
               confirmButtonText: 'Aceptar',
+            }).then(() => {
+              // Redirigir al perfil de administrador después de hacer clic en "Aceptar"
+              navigate('/admin-profile');
             });
           })
           .catch((error) => {
