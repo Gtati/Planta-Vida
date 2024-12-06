@@ -81,12 +81,12 @@
   }
   
   .home-button {
-    background-color: #007BFF;
+    background-color: #4CAF50;
     color: white;
   }
   
   .home-button:hover {
-    background-color: #0056b3;
+    background-color: #45a049;
   }
   
   .home-button:focus {
