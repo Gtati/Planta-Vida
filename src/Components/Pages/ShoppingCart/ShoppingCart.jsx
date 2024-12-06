@@ -93,7 +93,7 @@ const ShoppingCart = () => {
     }).then(() => {
       setSelectedBono(null);
       removeBono();
-      navigate('/');
+      navigate('/create-buyer');
     });
   };
 
