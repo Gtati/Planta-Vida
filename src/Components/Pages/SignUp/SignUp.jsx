@@ -82,7 +82,7 @@ const SignUp = () => {
           email: formData.email,
         });
 
-        navigate('/user-profile'); // Redirigir a la página de perfil
+        navigate('/'); // Redirigir a la página de perfil
       } else {
         const errorData = await response.json();
         const message = errorData.message || "No se pudo completar el registro";
