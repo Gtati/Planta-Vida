@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../UserContext/UserContext";
 import { FaHome, FaUserCircle } from "react-icons/fa"; // Importar ícono predeterminado
 import Swal from "sweetalert2";
 import { LocationCard } from "../../Layouts/LocationCard/LocationCard";
@@ -10,10 +11,11 @@ import Logo from "../../../assets/imagenes/logoPlantaVidaBlanco.png";
 import "./UserProfile.css";
 
 const UserProfile = () => {
+  const { userData } = useContext(UserContext);
+  const [profileImage, setProfileImage] = useState(
+    localStorage.getItem("profileImage") || null
+  ); // No hay imagen por defecto al inicio
   const navigate = useNavigate();
-  const [profileImage, setProfileImage] = useState(localStorage.getItem("profileImage") || null); // No hay imagen por defecto al inicio
-
-  const username = localStorage.getItem("username"); // Recuperar el nombre de usuario guardado en localStorage
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -89,10 +91,10 @@ const UserProfile = () => {
             <FaUserCircle className="default-profile-icon" /> // Ícono por defecto
           )}
           <div className="information-user">
-            <h2>{username || "Nombre no disponible"}</h2> {/* Mostrar el username desde localStorage */}
+            <h2>{userData.fullName || "Nombre no disponible"}</h2>
             <p>
               <strong>Correo Electrónico:</strong>{" "}
-              {localStorage.getItem("email") || "Correo no disponible"} {/* Correo desde localStorage */}
+              {userData.email || "Correo no disponible"}
             </p>
           </div>
           <div className="image-upload">
@@ -104,7 +106,45 @@ const UserProfile = () => {
           </div>
         </div>
 
-        {/* Botones Guardar y Cancelar */}
+        {/* Sección del Árbol */}
+        <div className="tree-section">
+          <h3>
+            Nombre del Árbol: <span className="arbol">Roble</span>
+          </h3>
+
+          {/* Contenedor de tarjetas de características y localización */}
+          <div className="tree-info-cards">
+            <div className="tree-card">
+              <h4>Características</h4>
+              <div className="tree-information">
+                <p>
+                  Los robles pueden alcanzar entre 20 y 40 metros de altura, con un tronco
+                  grueso que puede llegar a medir hasta 2 metros de diámetro.
+                </p>
+                <p>Es un árbol de crecimiento lento, lo que contribuye a la dureza de su madera.</p>
+                <p>
+                  Produce bellotas, esenciales para la alimentación de animales como ardillas,
+                  jabalíes y aves.
+                </p>
+              </div>
+            </div>
+            <div className="tree-card">
+              <h4>Localización</h4>
+              <div className="location-tree">
+                <LocationCard />
+              </div>
+            </div>
+          </div>
+
+          {/* Imágenes del Árbol */}
+          <div className="tree-images-container">
+            <img src={Roble1} alt="Árbol 1" className="tree-image" />
+            <img src={Roble2} alt="Árbol 2" className="tree-image" />
+            <img src={Roble3} alt="Árbol 3" className="tree-image" />
+          </div>
+        </div>
+
+        {/* Botones Guardar y Cancelar al final */}
         <div className="buttons-container">
           <button className="save-button" onClick={handleSave}>
             Crear Postal
