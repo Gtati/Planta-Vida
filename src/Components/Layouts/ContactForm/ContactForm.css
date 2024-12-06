@@ -21,14 +21,14 @@
     margin-bottom: 15px;
   }
   
-  .form-group label {
+  .form-grp label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
   }
   
-  .form-group input,
-  .form-group textarea {
+  .form-grp input,
+  .form-grp textarea {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -37,7 +37,7 @@
     background-color: #fff;
   }
   
-  .form-group textarea {
+  .form-grp textarea {
     resize: vertical;
     min-height: 100px;
   }
@@ -54,3 +54,12 @@
     transition: background-color 0.3s ease;
     padding-bottom: 1rem;
 }
+
+@media  (max-width: 480px){
+  .form{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+  }
+}
+

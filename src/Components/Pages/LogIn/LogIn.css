@@ -118,4 +118,16 @@
   .signup-link-text:hover {
     text-decoration: underline #e3ff9f;
   }
+
+  @media (max-width :352px){
+    .btn-login{
+      width: 14rem;
+    }
+  }
+  
+  @media (max-width: 768px){
+      .btn-login{
+        width: 11rem;
+      }
+  }
   

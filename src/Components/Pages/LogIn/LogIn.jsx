@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaHome } from "react-icons/fa";
-import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png'
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import Logo from '../../../assets/imagenes/logoPlantaVidaBlanco.png';
 import './LogIn.css';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -19,10 +21,41 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Datos de inicio de sesión:', formData);
-    // Aquí se podría agregar la lógica de autenticación
+    try {
+      const response = await axios.post(
+        'https://apirestplantavida-production.up.railway.app/api/auth/login',
+        {
+          username: formData.username,
+          password: formData.password,
+        },
+        { headers: { 'Content-Type': 'application/json' } }
+      );
+
+      const { username } = formData;
+      const userRole = username === 'admin1' ? 'admin' : 'user';
+
+      // Guardar en localStorage
+      localStorage.setItem('user', JSON.stringify({ username, role: userRole }));
+
+      // Mostrar mensaje de bienvenida
+      Swal.fire({
+        icon: 'success',
+        title: `Bienvenido ${userRole === 'admin' ? 'Administrador' : 'Usuario'}`,
+        text: `Hola ${username}, estás ingresando al sistema.`,
+        confirmButtonText: 'Continuar',
+      }).then(() => {
+        navigate('/'); // Redirigir al Home
+      });
+    } catch (error) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al iniciar sesión',
+        text: 'Usuario o contraseña incorrectos. Inténtalo de nuevo.',
+        confirmButtonText: 'Reintentar',
+      });
+    }
   };
 
   return (
@@ -35,36 +68,32 @@ const Login = () => {
         <h2 className="login-title">Iniciar Sesión</h2>
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Correo Electrónico</label>
+            <label>Nombre de Usuario</label>
             <input
-              type="email"
-              name="email"
-              value={formData.email}
+              type="text"
+              name="username"
+              value={formData.username}
               onChange={handleChange}
-              placeholder='Correo Electrónico'
+              placeholder="Nombre de Usuario"
               required
             />
           </div>
           <div className="form-group">
             <label>Contraseña</label>
             <input
-            label="Contraseña"
               type="password"
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder='Contraseña'
+              placeholder="Contraseña"
               required
             />
-          </div>
-          <div className="forgot-password">
-            <NavLink to="/forgot-password">¿Olvidaste la contraseña?</NavLink>
           </div>
           <div className="login-buttons">
             <button type="submit" className="btn-login">Iniciar Sesión</button>
           </div>
           <div className="signup-link">
-            ¿No tienes una cuenta? <NavLink to="/signup"><span className="signup-link-text">Regístrate</span></NavLink>
+            ¿No tienes una cuenta? <Link to="/signup"><span className="signup-link-text">Regístrate</span></Link>
           </div>
         </form>
       </div>

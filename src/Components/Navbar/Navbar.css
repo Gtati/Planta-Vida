@@ -20,14 +20,14 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 10;
+  z-index: 100;
   padding: 1rem;
   backdrop-filter: blur(21px);
 }
 
 .container-items.scrolled {
   background-color: rgba(33, 74, 50, 0.5);
-  z-index: 10;
+  z-index: 100;
   backdrop-filter: blur(21px);
   max-width: 98%;
   margin: 0 auto;
@@ -99,7 +99,7 @@ body {
   cursor: pointer;
 }
 
-.buttons .btn {
+.buttons .btn-sign {
   color: white;
   text-decoration: none;
   margin-left: 1rem;
@@ -115,6 +115,10 @@ body {
   align-items: center;
   border-radius: 20px;
   transition: background-color 500ms;
+  color: #fff;
+  text-decoration: none;
+  margin-right: 3rem;
+  margin-left: 2rem;
 }
 
 .register:hover {
@@ -126,9 +130,21 @@ body {
   color: #fff;
   width: 1.5rem;
   height: 1.5rem;
-  margin-right: 10px;
+  margin-right: 0px;
   font-size: 24px;
 }
+
+.profile-image {
+  width: 35px !important;
+  height: 35px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  margin-top: 5px;
+}
+
+
+
+
 
 /* Estilos del carrito */
 .cart-container {
@@ -159,13 +175,14 @@ body {
 .cart-indicator {
   position: absolute;
   top: -10px;
-  right: -10px;
+  right: -20px;
   background-color: #ff4b4b;
   color: white;
   border-radius: 50%;
   padding: 2px 8px;
   font-size: 12px;
   z-index: 50;
+  margin-right: 20.5rem;
 }
 
 /* Menú hamburguesa */
@@ -221,11 +238,98 @@ body {
 .itemNavbar li {
   margin: 15px 0;
 }
-/* 
-.itemNavbar li:hover{
-  color: #daff99;
-  text-decoration: underline;
-} */
+
+.btn-sign{
+  color: white;
+  text-decoration: none;
+}
+
+.profile-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Alinea el icono y el texto verticalmente */
+  gap: 8px; 
+  padding-left: 8px;
+  padding-right: 8px; 
+  background-color: #f9f9f9; /* Fondo claro */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 2rem;
+}
+
+.profile-icon:hover {
+  background-color: #e6e6e6; /* Fondo más oscuro al pasar el mouse */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.profile-icon span {
+  font-size: 14px; /* Tamaño del texto */
+  color: #333; /* Color del texto */
+  font-weight: 500; /* Peso del texto */
+}
+
+.profile-icon svg {
+  color: #6cd39b; /* Color del icono */
+  transition: color 0.3s ease;
+}
+
+.logout-button {
+  width: 7rem;
+  height: 2.5rem;
+  background-color: #052d23;
+  color: rgb(51, 47, 47);
+  border: solid 2px #ffffff;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s ease;
+  color: white;
+  margin-left: 1rem;
+  margin-right: 3rem;
+ 
+}
+
+.logout-button:hover{
+  background-color: #e3ff9f;
+  color: black;
+  
+}
+
+
+.shopi-bag{
+  margin-left: 4rem;
+}
+
+
+
+@media (max-width: 1279px){
+
+  .container-items.scrolled {
+    width: 95%;
+  }
+
+  .btn-sign{
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttons{
+    margin-left: 1rem;
+  }
+ 
+  .shopi-bag{
+    margin: 0;
+  }
+
+  .container-items.scrolled .itemNavbar{
+    margin-top: 1.5rem;
+    margin-left: 1rem ;
+  }
+}
+
 
 /* Estilos responsivos */
 @media (max-width: 920px) {
@@ -255,5 +359,126 @@ body {
   .buttons  {
     margin-right: 5rem;
     z-index: 1;
+    margin: 1rem;
+  }
+
+  .itemNavbar.open{
+    height: 17rem;
+  }
+}
+
+@media (max-width :480px) {
+  .container-items{
+    width: 100vw;
+  }
+
+  .container-items.scrolled{
+    width: 95%;
+  }
+
+  .container-items.scrolled .logo{
+    height: 3rem;
+    padding: 0;
+  }
+
+  .container-items.scrolled .register{
+    margin-right: 10px;
+  } 
+  
+  .itemNavbar.open{
+    height: 16.5rem;
+  }
+
+  .container-items.scrolled .btn{
+    font-size: 1rem;
+  } 
+
+  .logo{
+    display: none;
+  }
+
+  .buttons{
+    gap: 2rem;
+  }
+
+  .container-items.scrolled .buttons{
+    gap: 1rem;
+  }
+
+  .profile-icon{
+    width: 10rem;
+    margin: 0;
+  }
+
+  .logout-button{
+    width: 8rem;
+    margin-left: 0;
+  }
+}
+
+@media (max-width :352px){
+  .logo{
+    display: none;
+  }
+
+  .buttons{
+    margin-right: 50px; 
+    width: 20rem;
+    gap: 0;
+  }
+
+  .container-items.scrolled{
+    width: 95%;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .container-items.scrolled .buttons{
+    gap: 0;
+  }
+
+  .container-items.scrolled .btn{
+  margin: 0;
+  }
+
+  .shopi-bag{
+    margin: 0;
+  }
+
+  .register{
+    width: 6rem;
+  }
+
+  .btn-sign{
+    width: 7rem;
+  }
+
+  .profile-icon{
+    width: 7rem;
+  }
+
+  .logout-button{
+    width: 7rem;
+  }
+
+  .buttons{
+    gap: 10px;
+  }
+
+  .container-items.scrolled .buttons{
+    gap: 10px;
+  }
+
+  .container-items.scrolled .logout-button{
+    width: 6rem;
+    font-size: 14px;
+  }
+
+}
+
+@media  (max-width: 768px){
+  .itemNavbar.open{
+    height: auto;
   }
 }

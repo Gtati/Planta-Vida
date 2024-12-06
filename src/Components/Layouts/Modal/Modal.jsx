@@ -1,15 +1,18 @@
-
 import React, { useState, useEffect, useContext } from 'react';
 import { useCart } from '../CartContext/CartContext'; // Importamos el contexto del carrito
 import { BonoContext } from '../../Layouts/BonoContext/BonoContext'; // Importamos el BonoContext
+import { useNavigate } from 'react-router-dom'; // Importamos el hook de navegación
 import './Modal.css';
 import { FaXmark } from "react-icons/fa6";
+import { LuTrees } from "react-icons/lu";
 
 export const Modal = ({ isOpen, onClose, title, children }) => {
+  const [isUser, setIsUser] = useState(false);
   const [isVisible, setIsVisible] = useState(isOpen);
   const [closing, setClosing] = useState(false);
   const { addToCart } = useCart(); // Usamos el contexto del carrito
   const { setSelectedBono } = useContext(BonoContext); // Usamos el contexto del bono
+  const navigate = useNavigate(); // Usamos el hook de navegación
 
   useEffect(() => {
     if (isOpen) {
@@ -26,6 +29,20 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
     }
   }, [isOpen, isVisible, onClose]);
 
+
+  useEffect(() => {
+    // Comprobamos si hay un usuario en el localStorage
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      if (user?.role === 'user') {
+        setIsUser(true); // Si el usuario es usuario registrado, mostramos los botones de añadir al carrito
+      }
+    }
+    
+    
+  }, []);
+
   const handleClose = () => {
     setClosing(true);
     setTimeout(() => {
@@ -38,20 +55,38 @@ export const Modal = ({ isOpen, onClose, title, children }) => {
 
   // Manejar cuando el usuario hace clic en "Añadir Al Carrito"
   const handleAddToCart = () => {
-    setSelectedBono(title); // Establece el bono seleccionado en el contexto de Bono
-    addToCart(); // Añadir el bono al carrito usando el contexto del carrito
+    setSelectedBono(
+      <div className="bono">
+        <LuTrees className="circle-icon" />
+        <hr className="bono-line" />
+
+        <h2 className="title-card">{title}</h2>
+        <p className="text-card">{children}</p>
+      </div>
+    ); // Guarda todo el contenido del bono con estilos
+    addToCart();
+    navigate('/shopping-cart');
   };
 
+  
+  
+  
   return isVisible ? (
+    
     <div className={`modal-overlay ${isOpen && !closing ? 'show' : ''}`}>
       <div className={`modal-popup ${closing ? 'fade-out' : ''}`}>
         <h2>{title}</h2>
         <FaXmark onClick={handleClose} className="close-mark" />
+        
         <div className="modal-body">{children}</div>
+        {isUser && (
         <button className="carrito-button" onClick={handleAddToCart}>
           Añadir Al Carrito
         </button>
+         
+)}
       </div>
     </div>
   ) : null;
 };
+

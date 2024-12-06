@@ -23,3 +23,11 @@ color: #89c977;
     background-color: #052d23;
     margin: 0;
 }
+
+@media (max-width: 480px){
+    .items {
+        display: block; /* Cambia de flex a block en esta vista */
+        text-align: center; /* Opcional: centrar el contenido */
+    }
+    
+}

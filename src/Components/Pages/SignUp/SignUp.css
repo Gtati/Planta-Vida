@@ -44,6 +44,7 @@
   .signup-form {
     display: flex;
     flex-direction: column;
+    
   }
   
   .form-row {
@@ -136,5 +137,59 @@
   
   .swal-text{
     font-family:"Roboto", sans-serif;;
+  }
+
+  .password-container {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  
+  }
+  
+  .password-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .info-toggle {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: #fff;
+    margin-right: 5px;
+  }
+  
+  .password-hint {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  
+
+  @media (max-width: 352px) {
+    .form-row{
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    
+    .btn-cancel, .btn-confirm{
+      width: 8rem;
+    }
+  }
+
+  @media (max-width: 768px){
+      .btn-cancel, .btn-confirm{
+        width: 11rem;
+      }
   }
   

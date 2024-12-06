@@ -5,7 +5,7 @@ import './IndividualTree.css'; // Opcional para estilos
 
 export const IndividualTree = ({ title, imageUrl, link }) => {
   return (
-    <Link to={link} className="tree-card">
+    <Link to={link} className="tree-card-bag">
       <div className="card-content">
         <img src={imageUrl} alt={title} className="tree-images" />
         <h3 className="tree-title">{title}</h3>

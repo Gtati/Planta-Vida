@@ -14,3 +14,16 @@
     border-radius: 1rem;
    
 }
+
+@media (max-width: 768px) {
+    .image-link{
+        width: 16rem;
+        height: 16rem;
+    }
+
+    .image-link-img{
+        width: 16.5rem;
+        height: 16.5rem;
+    }
+    
+}

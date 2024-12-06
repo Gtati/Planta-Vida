@@ -3,3 +3,16 @@ padding: 0;
 margin: 0;
 
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    overflow: auto; /* Permite scroll en caso de contenido excedente */
+  }
+  
+.main-container {
+    min-height: 100vh; /* Asegura que ocupe toda la ventana */
+    overflow-y: auto;  /* Activa el scroll vertical */
+    overflow-x: auto;
+  }
+  
