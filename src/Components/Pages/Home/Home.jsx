@@ -147,16 +147,14 @@ function Home() {
                   <Card
                     title={bono.title}
                     content={bono.content}
-                    buttonText={!isAdmin ? "Ver Más" : null} // Mostrar botón solo si no es admin
+                    buttonText="Ver Más"
                     bonoId={bono.id}
                   />
                   {isAdmin && (
                     <button
                       onClick={() => handleEditBono(bono.id)}
                       className="edit-bono-button"
-                    >
-                      Editar
-                    </button>
+                    >Editar </button>
                   )}
                 </div>
               </div>
