@@ -80,7 +80,7 @@ const ShoppingCart = () => {
     }).then(() => {
       setSelectedBono(null); // Limpiar el bono seleccionado
       removeBono(); // Limpiar el carrito
-      navigate('/'); // Redirigir a la página principal
+      navigate('/create-buyer'); // Redirigir a la página principal
     });
   };
 
