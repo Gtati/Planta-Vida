@@ -19,6 +19,7 @@
   .compradores-list {
     list-style-type: none;
     padding-left: 0;
+    width: 20rem;
   }
   
   .comprador-item {
