@@ -91,10 +91,10 @@ const UserProfile = () => {
             <FaUserCircle className="default-profile-icon" /> // Ícono por defecto
           )}
           <div className="information-user">
-            <h2>{userData.fullName || "Nombre no disponible"}</h2>
+            <h2>Tatiana</h2>
             <p>
               <strong>Correo Electrónico:</strong>{" "}
-              {userData.email || "Correo no disponible"}
+              tatiana@correo.com
             </p>
           </div>
           <div className="image-upload">
