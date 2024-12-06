@@ -152,7 +152,7 @@ export const CreateBuyer = () => {
             <option value="ambiental">Ambiental</option>
           </select>
         </div>
-        <button type="submit">Crear Comprador</button>
+        <button type="submit">Enviar información</button>
       </form>
       {mensaje && <p>{mensaje}</p>}
       <p className="informacion">
